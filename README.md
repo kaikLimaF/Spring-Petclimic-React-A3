@@ -10,7 +10,9 @@ Avaliação completa de **Quality Assurance** do sistema open source [spring-pet
 ```
 ├── spring-petclinic-reactjs/   código-fonte do sistema (backend + client) e testes automatizados
 ├── docs/                       documentação de QA (arquitetura, plano, riscos, casos, métricas, decisão)
-│   ├── RELATORIO-FINAL.md      relatório técnico consolidado
+│   ├── RELATORIO-FINAL.md      relatório técnico consolidado (PDF em RELATORIO-A3.pdf)
+│   ├── 13-anexo-…              resultado de cada teste (apoio ao pitch)
+│   ├── 14-testes-de-carga-…    k6: carga e desempenho
 │   ├── dashboard/index.html    dashboard de métricas
 │   ├── postman/                coleção Postman
 │   └── evidencias/             JaCoCo, Surefire, SonarQube, Trivy, sondagens
@@ -18,7 +20,7 @@ Avaliação completa de **Quality Assurance** do sistema open source [spring-pet
 └── scripts/perf/               cenários k6 (smoke, desempenho, carga, stress, pico)
 ```
 
-Comece por **[docs/README.md](docs/README.md)**.
+Comece por **[docs/README.md](docs/README.md)**. Apresentação: [slides do seminário](https://claude.ai/artifact/77DtGLZCbKMR4UrsYZ48bw) · [relatório online](https://claude.ai/artifact/1Ht1fYoWmWYix2tWH1BsvQ) (links privados até serem compartilhados).
 
 ## Como executar o sistema
 

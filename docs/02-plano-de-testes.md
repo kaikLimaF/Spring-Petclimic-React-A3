@@ -147,8 +147,9 @@ A **Quality Decision** (doc 11) confronta cada critério com as evidências e co
 
 ## 2.11 Entregáveis
 
-1. Documentação (`docs/01` a `docs/12` + `docs/RELATORIO-FINAL.md`)
+1. Documentação (`docs/01` a `docs/14` + `docs/RELATORIO-FINAL.md` + PDF)
 2. Código de testes automatizados (`src/test/java/.../{service,model,util,rest,integration}`)
-3. Script caixa-preta (`scripts/api-blackbox.sh`) e coleção Postman
-4. Evidências (`docs/evidencias/`: JaCoCo, Surefire, SonarQube, Trivy, sondagens)
+3. Script caixa-preta (`scripts/api-blackbox.sh`), coleção Postman e cenários k6 (`scripts/perf/`)
+4. Evidências (`docs/evidencias/`: JaCoCo, Surefire, SonarQube, Trivy, k6, sondagens)
 5. Pipeline de CI atualizado
+6. Dashboard de métricas (`docs/dashboard/index.html`) e apresentação (deck de slides)

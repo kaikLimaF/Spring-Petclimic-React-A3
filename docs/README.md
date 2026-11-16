@@ -4,7 +4,8 @@ Sistema avaliado: **Spring PetClinic (React)** — [spring-petclinic/spring-petc
 
 | # | Documento | Entrega A3 | Conteúdo |
 |---|---|---|---|
-| — | [RELATORIO-FINAL.md](RELATORIO-FINAL.md) | Relatório técnico (PDF) | Tudo o que foi feito, por que e como; índice de artefatos |
+| — | [RELATORIO-FINAL.md](RELATORIO-FINAL.md) · [RELATORIO-A3.pdf](RELATORIO-A3.pdf) | Relatório técnico (PDF) | Tudo o que foi feito, por que e como; índice de artefatos |
+| — | [Apresentação (slides)](https://claude.ai/artifact/77DtGLZCbKMR4UrsYZ48bw) · [Relatório online](https://claude.ai/artifact/1Ht1fYoWmWYix2tWH1BsvQ) | Apresentação | Deck de 22 slides para o seminário e versão online do relatório (links privados: compartilhar pelo menu Share) |
 | 01 | [Arquitetura](01-arquitetura.md) | 2 | Diagramas (componentes, dados, sequência), componentes, endpoints, build/execução |
 | 02 | [Plano de testes](02-plano-de-testes.md) | 2 | Escopo, atributos de qualidade, estratégia, critérios de aceitação, ambiente, cronograma |
 | 03 | [Matriz de rastreabilidade](03-matriz-de-rastreabilidade.md) | 2 | Requisitos × casos de teste × defeitos |

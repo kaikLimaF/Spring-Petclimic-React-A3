@@ -74,6 +74,9 @@ cd spring-petclinic-reactjs
 # Suíte de defeitos conhecidos (esperado: 13 falhas enquanto não corrigidos)
 ./mvnw test -Pknown-defects -Dtest=KnownDefectsRegressionTests
 
+# Carga e desempenho (k6 em Docker, aplicação em execução)
+./scripts/perf/run-all.sh
+
 # Análise SonarQube (servidor em http://localhost:9001)
 ./mvnw verify sonar:sonar -Dsonar.token=<token>
 ```

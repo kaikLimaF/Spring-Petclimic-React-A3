@@ -8,7 +8,7 @@
 >
 > **Resposta:** **Não** para produção (**NO-GO**); **sim, condicionalmente**, para ambiente de demonstração. A suíte automatizada está verde (285 testes), a cobertura é alta (91,7 %) e o desempenho sob carga é folgado (0 % de erro até 200 usuários simultâneos), mas 11 dos 40 casos caixa-preta reprovam, 16 defeitos foram registrados (7 de severidade Alta, 6 de segurança), 3 endpoints do contrato estão inoperantes e as dependências carregam 12 CVEs críticas.
 
-Este documento explica **o que** foi feito em cada etapa do ciclo exigido pela A3, **por que** foi feito e **como** (ferramentas, comandos, decisões). Os detalhes estão nos documentos 01–12 em `docs/`.
+Este documento explica **o que** foi feito em cada etapa do ciclo exigido pela A3, **por que** foi feito e **como** (ferramentas, comandos, decisões). Os detalhes estão nos documentos 01–14 em `docs/`.
 
 ---
 
@@ -224,4 +224,6 @@ xdg-open ../docs/dashboard/index.html
 | Carga e desempenho | k6: 5 cenários com thresholds e resultados | `docs/14-testes-de-carga-e-desempenho.md`, `scripts/perf/`, `docs/evidencias/perf/` |
 | Anexo para o pitch | O que falhou, o que funcionou e por quê, teste a teste | `docs/13-anexo-resultados-por-teste.md` |
 | Evidências | JaCoCo, Surefire, Sonar, Trivy, sondagens | `docs/evidencias/` |
-| Relatório PDF | Este documento + docs 01–12 | `docs/RELATORIO-A3.pdf` |
+| Relatório PDF | Este documento + docs 01–14 | `docs/RELATORIO-A3.pdf` (gerado por `scripts/build-report.py`) |
+| Apresentação | Deck de 22 slides para o seminário (arquitetura → plano → riscos → testes → Sonar → métricas → carga → defeitos → Quality Decision → melhorias → lições) | https://claude.ai/artifact/77DtGLZCbKMR4UrsYZ48bw |
+| Relatório online | Versão resumida do relatório com diagramas e gráficos | https://claude.ai/artifact/1Ht1fYoWmWYix2tWH1BsvQ |
