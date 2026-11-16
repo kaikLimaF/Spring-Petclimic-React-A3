@@ -1,0 +1,1289 @@
+{
+  "info": {
+    "_postman_id": "fd2d5901-35f6-45d5-a52e-5168bb760426",
+    "name": "Spring PetClinic React - A3 QA (caixa-preta)",
+    "description": "Casos de teste caixa-preta da API REST. Variaveis: baseUrl (http://localhost:9966/petclinic), username/password (admin/admin quando petclinic.security.enable=true).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{username}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{password}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9966/petclinic"
+    },
+    {
+      "key": "username",
+      "value": "admin"
+    },
+    {
+      "key": "password",
+      "value": "admin"
+    },
+    {
+      "key": "ownerId",
+      "value": ""
+    },
+    {
+      "key": "petId",
+      "value": ""
+    },
+    {
+      "key": "visitId",
+      "value": ""
+    },
+    {
+      "key": "vetId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Owners",
+      "item": [
+        {
+          "name": "GET owner 1",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "1"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });",
+                  "pm.test('tem firstName', ()=>pm.expect(pm.response.json().firstName).to.eql('George'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET owner inexistente",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/999999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "999999"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404', function () { pm.expect(pm.response.code).to.eql(404); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET owners por sobrenome",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners?lastName=Davis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "Davis"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });",
+                  "pm.test('2 Davis', ()=>pm.expect(pm.response.json().length).to.eql(2));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST owner valido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Ana\", \"lastName\": \"Silva\", \"address\": \"Rua A, 1\", \"city\": \"Sao Paulo\", \"telephone\": \"1199998888\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });",
+                  "pm.test('Location', ()=>pm.expect(pm.response.headers.get('Location')).to.include('/api/owners/'));",
+                  "pm.collectionVariables.set('ownerId', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST owner telefone 11 digitos (DEF-01)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners"
+              ]
+            },
+            "description": "Contrato aceita ate 20 digitos; entidade limita a 10. Falha hoje com 400.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Ana\", \"lastName\": \"Silva\", \"address\": \"Rua A, 1\", \"city\": \"Sao Paulo\", \"telephone\": \"11999998888\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST owner telefone invalido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Ana\", \"lastName\": \"Silva\", \"address\": \"Rua A, 1\", \"city\": \"Sao Paulo\", \"telephone\": \"11-9999\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });",
+                  "pm.test('header errors', ()=>pm.expect(pm.response.headers.get('errors')).to.include('telephone'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST owner nome vazio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"\", \"lastName\": \"Silva\", \"address\": \"Rua A, 1\", \"city\": \"Sao Paulo\", \"telephone\": \"1199998888\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT owner (contrato 200, DEF-11)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/{{ownerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "{{ownerId}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Ana\", \"lastName\": \"Silva\", \"address\": \"Rua A, 1\", \"city\": \"Campinas\", \"telephone\": \"1199998888\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DELETE owner",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/{{ownerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "{{ownerId}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 204', function () { pm.expect(pm.response.code).to.eql(204); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET owner id nao numerico (DEF-03)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "abc"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });",
+                  "pm.test('sem vazamento de classe', ()=>pm.expect(pm.response.text()).to.not.include('Exception'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 Pets",
+      "item": [
+        {
+          "name": "POST pet para owner 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/1/pets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Rex\", \"birthDate\": \"2020-01-01\", \"type\": {\"id\": 2, \"name\": \"dog\"}}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });",
+                  "pm.collectionVariables.set('petId', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET pet do proprio dono (DEF-02)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/1/pets/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets",
+                "1"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST pet owner inexistente (DEF-04)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/999999/pets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "999999",
+                "pets"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Rex\", \"birthDate\": \"2020-01-01\", \"type\": {\"id\": 2, \"name\": \"dog\"}}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404', function () { pm.expect(pm.response.code).to.eql(404); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /api/pets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pets"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /api/pets (DEF-06)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pets"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Tom\", \"birthDate\": \"2020-01-01\", \"type\": {\"id\": 1, \"name\": \"cat\"}, \"ownerId\": 1}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT pet",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pets/{{petId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pets",
+                "{{petId}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\": \"{{petId}}\", \"name\": \"Rex II\", \"birthDate\": \"2020-01-01\", \"type\": {\"id\": 2, \"name\": \"dog\"}, \"ownerId\": 1}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 204', function () { pm.expect(pm.response.code).to.eql(204); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DELETE pet",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pets/{{petId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pets",
+                "{{petId}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 204', function () { pm.expect(pm.response.code).to.eql(204); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 Visits",
+      "item": [
+        {
+          "name": "POST visita valida",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/1/pets/1/visits",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets",
+                "1",
+                "visits"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"date\": \"2024-01-01\", \"description\": \"checkup\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });",
+                  "pm.collectionVariables.set('visitId', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST visita descricao vazia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/1/pets/1/visits",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets",
+                "1",
+                "visits"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"date\": \"2024-01-01\", \"description\": \"\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST visita pet de outro dono (DEF-05)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners/2/pets/1/visits",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners",
+                "2",
+                "pets",
+                "1",
+                "visits"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"date\": \"2024-01-01\", \"description\": \"x\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('4xx esperado', ()=>pm.expect(pm.response.code).to.be.within(400,499));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET visitas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/visits",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "visits"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DELETE visita",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/visits/{{visitId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "visits",
+                "{{visitId}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 204', function () { pm.expect(pm.response.code).to.eql(204); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04 Vets / Specialties / PetTypes",
+      "item": [
+        {
+          "name": "GET vets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vets"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });",
+                  "pm.test('6 vets', ()=>pm.expect(pm.response.json().length).to.be.at.least(6));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST vet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vets"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Nova\", \"lastName\": \"Vet\", \"specialties\": [{\"id\": 2, \"name\": \"surgery\"}]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });",
+                  "pm.collectionVariables.set('vetId', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT vet especialidade inexistente (DEF-09)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vets/{{vetId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vets",
+                "{{vetId}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\": \"{{vetId}}\", \"firstName\": \"Nova\", \"lastName\": \"Vet\", \"specialties\": [{\"id\": 77, \"name\": \"cardiology\"}]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('4xx esperado', ()=>pm.expect(pm.response.code).to.be.within(400,499));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DELETE vet",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vets/{{vetId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vets",
+                "{{vetId}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 204', function () { pm.expect(pm.response.code).to.eql(204); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET pettypes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pettypes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pettypes"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST pettype com id",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pettypes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pettypes"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\": 9, \"name\": \"x\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET specialties",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/specialties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "specialties"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.expect(pm.response.code).to.eql(200); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05 Users / Seguranca",
+      "item": [
+        {
+          "name": "POST user valido (DEF-07 senha na resposta)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"qa{{$randomInt}}\", \"password\": \"abc\", \"enabled\": true, \"roles\": [{\"name\": \"OWNER_ADMIN\"}]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.expect(pm.response.code).to.eql(201); });",
+                  "pm.test('senha nao devolvida', ()=>pm.expect(pm.response.json().password).to.be.undefined);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST user sem roles",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"qa-noroles\", \"password\": \"abc\", \"enabled\": true}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.expect(pm.response.code).to.eql(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CORS preflight origem desconhecida (DEF-08)",
+          "request": {
+            "method": "OPTIONS",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "http://evil.example"
+              },
+              {
+                "key": "Access-Control-Request-Method",
+                "value": "DELETE"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "owners"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('ACAO nao deve ser *', ()=>pm.expect(pm.response.headers.get('Access-Control-Allow-Origin')).to.not.eql('*'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

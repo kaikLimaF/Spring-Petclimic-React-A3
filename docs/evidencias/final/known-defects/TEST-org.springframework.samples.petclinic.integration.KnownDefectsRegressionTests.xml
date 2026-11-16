@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="5.245" tests="13" errors="0" skipped="0" failures="13">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/test-classes:/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/classes:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.2.1/spring-boot-starter-actuator-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.1/spring-boot-starter-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot/3.2.1/spring-boot-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.1/spring-boot-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.1/spring-boot-starter-logging-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/pedro-henrique-novais-neves/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.2.1/spring-boot-actuator-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-actuator/3.2.1/spring-boot-actuator-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-observation/1.12.1/micrometer-observation-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-commons/1.12.1/micrometer-commons-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-jakarta9/1.12.1/micrometer-jakarta9-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-core/1.12.1/micrometer-core-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.1/spring-boot-starter-aop-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-aop/6.1.2/spring-aop-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-beans/6.1.2/spring-beans-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-cache/3.2.1/spring-boot-starter-cache-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-context-support/6.1.2/spring-context-support-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-context/6.1.2/spring-context-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.1/spring-boot-starter-data-jpa-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/orm/hibernate-core/6.4.1.Final/hibernate-core-6.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-jpa/3.2.1/spring-data-jpa-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-commons/3.2.1/spring-data-commons-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-orm/6.1.2/spring-orm-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-tx/6.1.2/spring-tx-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-aspects/6.1.2/spring-aspects-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.1/spring-boot-starter-jdbc-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-jdbc/6.1.2/spring-jdbc-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.1/spring-boot-starter-web-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.1/spring-boot-starter-json-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.1/spring-boot-starter-tomcat-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.17/tomcat-embed-core-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.17/tomcat-embed-websocket-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-web/6.1.2/spring-web-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-webmvc/6.1.2/spring-webmvc-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-expression/6.1.2/spring-expression-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.2.1/spring-boot-starter-security-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-config/6.2.1/spring-security-config-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-web/6.2.1/spring-security-web-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.1/spring-boot-starter-validation-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.17/tomcat-embed-el-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hsqldb/hsqldb/2.7.2/hsqldb-2.7.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/mysql/mysql-connector-j/8.1.0/mysql-connector-j-8.1.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-jdbc-core/1.2.1.RELEASE/spring-data-jdbc-core-1.2.1.RELEASE.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/retry/spring-retry/2.0.5/spring-retry-2.0.5.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.1/spring-boot-starter-test-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-test/3.2.1/spring-boot-test-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.1/spring-boot-test-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-core/6.1.2/spring-core-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-jcl/6.1.2/spring-jcl-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-test/6.1.2/spring-test-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-test/6.2.1/spring-security-test-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-core/6.2.1/spring-security-core-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-crypto/6.2.1/spring-security-crypto-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.0.2/springdoc-openapi-starter-webmvc-ui-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-api/2.0.2/springdoc-openapi-starter-webmvc-api-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-common/2.0.2/springdoc-openapi-starter-common-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-core-jakarta/2.2.7/swagger-core-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.7/swagger-annotations-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-models-jakarta/2.2.7/swagger-models-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.3/jackson-dataformat-yaml-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/webjars/swagger-ui/4.15.5/swagger-ui-4.15.5.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/webjars/webjars-locator-core/0.55/webjars-locator-core-0.55.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/github/classgraph/classgraph/4.8.149/classgraph-4.8.149.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/openapitools/jackson-databind-nullable/0.2.1/jackson-databind-nullable-0.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mapstruct/mapstruct/1.4.1.Final/mapstruct-1.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mapstruct/mapstruct-processor/1.4.1.Final/mapstruct-processor-1.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/surefire/surefirebooter-20261116190837374_3.jar /home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/surefire 2026-11-16T19-08-37_341-jvmRun1 surefire-20261116190837374_1tmp surefire_0-20261116190837374_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/test-classes:/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/classes:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.2.1/spring-boot-starter-actuator-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.1/spring-boot-starter-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot/3.2.1/spring-boot-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.1/spring-boot-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.1/spring-boot-starter-logging-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/pedro-henrique-novais-neves/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.2.1/spring-boot-actuator-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-actuator/3.2.1/spring-boot-actuator-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-observation/1.12.1/micrometer-observation-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-commons/1.12.1/micrometer-commons-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-jakarta9/1.12.1/micrometer-jakarta9-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/micrometer/micrometer-core/1.12.1/micrometer-core-1.12.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.1/spring-boot-starter-aop-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-aop/6.1.2/spring-aop-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-beans/6.1.2/spring-beans-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-cache/3.2.1/spring-boot-starter-cache-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-context-support/6.1.2/spring-context-support-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-context/6.1.2/spring-context-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.1/spring-boot-starter-data-jpa-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/orm/hibernate-core/6.4.1.Final/hibernate-core-6.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-jpa/3.2.1/spring-data-jpa-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-commons/3.2.1/spring-data-commons-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-orm/6.1.2/spring-orm-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-tx/6.1.2/spring-tx-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-aspects/6.1.2/spring-aspects-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.1/spring-boot-starter-jdbc-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-jdbc/6.1.2/spring-jdbc-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.1/spring-boot-starter-web-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.1/spring-boot-starter-json-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.1/spring-boot-starter-tomcat-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.17/tomcat-embed-core-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.17/tomcat-embed-websocket-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-web/6.1.2/spring-web-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-webmvc/6.1.2/spring-webmvc-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-expression/6.1.2/spring-expression-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.2.1/spring-boot-starter-security-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-config/6.2.1/spring-security-config-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-web/6.2.1/spring-security-web-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.1/spring-boot-starter-validation-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.17/tomcat-embed-el-10.1.17.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hsqldb/hsqldb/2.7.2/hsqldb-2.7.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/mysql/mysql-connector-j/8.1.0/mysql-connector-j-8.1.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/data/spring-data-jdbc-core/1.2.1.RELEASE/spring-data-jdbc-core-1.2.1.RELEASE.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/retry/spring-retry/2.0.5/spring-retry-2.0.5.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.1/spring-boot-starter-test-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-test/3.2.1/spring-boot-test-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.1/spring-boot-test-autoconfigure-3.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-core/6.1.2/spring-core-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-jcl/6.1.2/spring-jcl-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/spring-test/6.1.2/spring-test-6.1.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-test/6.2.1/spring-security-test-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-core/6.2.1/spring-security-core-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springframework/security/spring-security-crypto/6.2.1/spring-security-crypto-6.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.0.2/springdoc-openapi-starter-webmvc-ui-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-api/2.0.2/springdoc-openapi-starter-webmvc-api-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/springdoc/springdoc-openapi-starter-common/2.0.2/springdoc-openapi-starter-common-2.0.2.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-core-jakarta/2.2.7/swagger-core-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.7/swagger-annotations-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/swagger/core/v3/swagger-models-jakarta/2.2.7/swagger-models-jakarta-2.2.7.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.3/jackson-dataformat-yaml-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/webjars/swagger-ui/4.15.5/swagger-ui-4.15.5.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/webjars/webjars-locator-core/0.55/webjars-locator-core-0.55.jar:/home/pedro-henrique-novais-neves/.m2/repository/io/github/classgraph/classgraph/4.8.149/classgraph-4.8.149.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/openapitools/jackson-databind-nullable/0.2.1/jackson-databind-nullable-0.2.1.jar:/home/pedro-henrique-novais-neves/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mapstruct/mapstruct/1.4.1.Final/mapstruct-1.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mapstruct/mapstruct-processor/1.4.1.Final/mapstruct-processor-1.4.1.Final.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/home/pedro-henrique-novais-neves/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/home/pedro-henrique-novais-neves/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/pedro-henrique-novais-neves/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:"/>
+    <property name="test" value="KnownDefectsRegressionTests"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/pedro-henrique-novais-neves"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-10-24"/>
+    <property name="java.home" value="/usr/lib/jvm/java-21-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/target/surefire/surefirebooter-20261116190837374_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.13.0.3+1-1-24.04.1-Ubuntu"/>
+    <property name="user.name" value="pedro-henrique-novais-neves"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="7.0.0-43-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/pedro-henrique-novais-neves/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="21.0.13.0.3"/>
+    <property name="user.dir" value="/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="238003"/>
+    <property name="failIfNoTests" value="false"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="21.0.13.0.3+1-1-24.04.1-Ubuntu"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="def08_corsShouldRejectUnknownOrigins" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.319">
+    <failure message="Response should not contain header &apos;Access-Control-Allow-Origin&apos;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Response should not contain header 'Access-Control-Allow-Origin'
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:37)
+	at org.springframework.test.util.AssertionErrors.assertFalse(AssertionErrors.java:83)
+	at org.springframework.test.web.servlet.result.HeaderResultMatchers.lambda$doesNotExist$5(HeaderResultMatchers.java:107)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def08_corsShouldRejectUnknownOrigins(KnownDefectsRegressionTests.java:127)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[INFO  AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests]: KnownDefectsRegressionTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+INFO  SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.1)
+
+INFO  Version - HV000001: Hibernate Validator 8.0.1.Final
+INFO  KnownDefectsRegressionTests - Starting KnownDefectsRegressionTests using Java 21.0.13.0.3 with PID 238003 (started by pedro-henrique-novais-neves in /home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs)
+DEBUG KnownDefectsRegressionTests - Running with Spring Boot v3.2.1, Spring v6.1.2
+INFO  KnownDefectsRegressionTests - The following 2 profiles are active: "hsqldb", "spring-data-jpa"
+INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 7 JPA repository interfaces.
+INFO  HikariDataSource - HikariPool-1 - Starting...
+INFO  PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+INFO  HikariPool - HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@29c244e
+INFO  HikariDataSource - HikariPool-1 - Start completed.
+INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+WARN  deprecation - HHH90000025: HSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+INFO  EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+INFO  DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12d432ea, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e095ba6, org.springframework.security.web.context.SecurityContextHolderFilter@428b5b3f, org.springframework.security.web.header.HeaderWriterFilter@2c4da654, org.springframework.web.filter.CorsFilter@87dc829, org.springframework.security.web.authentication.logout.LogoutFilter@f53070c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@43758a1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50e3be0a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72eed4db, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5995ba6c, org.springframework.security.web.access.ExceptionTranslationFilter@7cb84fb5, org.springframework.security.web.access.intercept.AuthorizationFilter@66b8f244]
+INFO  DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1353f515, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@570b2d9b, org.springframework.security.web.context.SecurityContextHolderFilter@6965f207, org.springframework.security.web.header.HeaderWriterFilter@8921749, org.springframework.web.filter.CorsFilter@3b5b6df4, org.springframework.security.web.authentication.logout.LogoutFilter@2e4084e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16db70a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15800a35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ad11552, org.springframework.security.web.access.ExceptionTranslationFilter@2a01d4aa, org.springframework.security.web.access.intercept.AuthorizationFilter@12387c79]
+WARN  UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1b8c3b84-1e0e-4497-a7c8-2aede4b8a0b6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+INFO  SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+INFO  TestDispatcherServlet - Initializing Servlet ''
+INFO  TestDispatcherServlet - Completed initialization in 0 ms
+INFO  KnownDefectsRegressionTests - Started KnownDefectsRegressionTests in 4.143 seconds (process running for 4.722)
+
+MockHttpServletRequest:
+      HTTP Method = OPTIONS
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Origin:"http://evil.example", Access-Control-Request-Method:"GET"]
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = null
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET", Access-Control-Expose-Headers:"errors, content-type", Access-Control-Max-Age:"1800", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/pedro-henrique-novais-neves/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="def05_visitForPetOfAnotherOwnerShouldBeRejected" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.198">
+    <failure message="Range for response status value 201 expected:&lt;CLIENT_ERROR&gt; but was:&lt;SUCCESSFUL&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Range for response status value 201 expected:<CLIENT_ERROR> but was:<SUCCESSFUL>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is4xxClientError$5(StatusResultMatchers.java:95)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def05_visitForPetOfAnotherOwnerShouldBeRejected(KnownDefectsRegressionTests.java:97)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"105"]
+             Body = {"firstName":"Alice","lastName":"Donoa","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/11", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Alice","lastName":"Donoa","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":11,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/11
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"105"]
+             Body = {"firstName":"Bruno","lastName":"Donob","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/12", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Bruno","lastName":"Donob","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":12,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/12
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners/11/pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"71"]
+             Body = {"name":"Pipoca","birthDate":"2020-01-15","type":{"id":2,"name":"dog"}}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addPetToOwner(Integer, PetFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/pets/14", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"name":"Pipoca","birthDate":"2020-01-15","type":{"name":"dog","id":2},"id":14,"ownerId":11,"visits":[]}
+    Forwarded URL = null
+   Redirected URL = /api/pets/14
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners/12/pets/14/visits
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"45"]
+             Body = {"date":"2024-03-10","description":"intruso"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addVisitToOwner(Integer, Integer, VisitFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/visits/5", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"date":"2024-03-10","description":"intruso","id":5,"petId":14}
+    Forwarded URL = null
+   Redirected URL = /api/visits/5
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def03_errorResponsesShouldNotLeakInternals" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.012">
+    <failure message="Response content&#10;Expected: not a string containing &quot;Exception&quot;&#10;     but: was &quot;{\&quot;className\&quot;:\&quot;org.springframework.web.method.annotation.MethodArgumentTypeMismatchException\&quot;,\&quot;exMessage\&quot;:\&quot;Failed to convert value of type &apos;java.lang.String&apos; to required type &apos;java.lang.Integer&apos;; For input string: \\\&quot;abc\\\&quot;\&quot;}&quot;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+Response content
+Expected: not a string containing "Exception"
+     but: was "{\"className\":\"org.springframework.web.method.annotation.MethodArgumentTypeMismatchException\",\"exMessage\":\"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: \\\"abc\\\"\"}"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$string$3(ContentResultMatchers.java:141)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def03_errorResponsesShouldNotLeakInternals(KnownDefectsRegressionTests.java:74)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/owners/abc
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#getOwner(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.method.annotation.MethodArgumentTypeMismatchException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"222", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"className":"org.springframework.web.method.annotation.MethodArgumentTypeMismatchException","exMessage":"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: \"abc\""}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def02_getOwnersPetShouldReturnPet" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.041">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def02_getOwnersPetShouldReturnPet(KnownDefectsRegressionTests.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"109"]
+             Body = {"firstName":"Maria","lastName":"Ownerspet","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/13", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Maria","lastName":"Ownerspet","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":13,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/13
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners/13/pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"69"]
+             Body = {"name":"Nina","birthDate":"2020-01-15","type":{"id":2,"name":"dog"}}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addPetToOwner(Integer, PetFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/pets/15", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"name":"Nina","birthDate":"2020-01-15","type":{"name":"dog","id":2},"id":15,"ownerId":13,"visits":[]}
+    Forwarded URL = null
+   Redirected URL = /api/pets/15
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/owners/13/pets/15
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#getOwnersPet(Integer, Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def12_updateOwnersPetShouldBeImplemented" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.017">
+    <failure message="Status expected:&lt;204&gt; but was:&lt;501&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<204> but was:<501>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def12_updateOwnersPetShouldBeImplemented(KnownDefectsRegressionTests.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"109"]
+             Body = {"firstName":"Elisa","lastName":"Updatepet","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/14", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Elisa","lastName":"Updatepet","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":14,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/14
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners/14/pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"68"]
+             Body = {"name":"Mel","birthDate":"2020-01-15","type":{"id":2,"name":"dog"}}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addPetToOwner(Integer, PetFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/pets/16", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"name":"Mel","birthDate":"2020-01-15","type":{"name":"dog","id":2},"id":16,"ownerId":14,"visits":[]}
+    Forwarded URL = null
+   Redirected URL = /api/pets/16
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/owners/14/pets/16
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"71"]
+             Body = {"name":"Mel II","birthDate":"2020-01-15","type":{"id":2,"name":"dog"}}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#updateOwnersPet(Integer, Integer, PetFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 501
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def07_createdUserResponseShouldNotExposePassword" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.039">
+    <failure message="Expected no value at JSON path &quot;$.password&quot; but found: &apos;s3cr3t&apos;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Expected no value at JSON path "$.password" but found: 's3cr3t'
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:37)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:70)
+	at org.springframework.test.util.JsonPathExpectationsHelper.doesNotExist(JsonPathExpectationsHelper.java:214)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$doesNotExist$4(JsonPathResultMatchers.java:134)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def07_createdUserResponseShouldNotExposePassword(KnownDefectsRegressionTests.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/users
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"91"]
+             Body = {"username":"qa-def07","password":"s3cr3t","enabled":true,"roles":[{"name":"OWNER_ADMIN"}]}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.UserRestController
+           Method = org.springframework.samples.petclinic.rest.controller.UserRestController#addUser(UserDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"username":"qa-def07","password":"s3cr3t","enabled":true,"roles":[{"name":"ROLE_OWNER_ADMIN"}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def10_accentedNamesShouldBeAccepted" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.015">
+    <failure message="Status expected:&lt;201&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<201> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def10_accentedNamesShouldBeAccepted(KnownDefectsRegressionTests.java:149)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"111"]
+             Body = {"firstName":"José","lastName":"Conceição","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", errors:"[{"objectName":"ownerFieldsDto","fieldName":"lastName","fieldValue":"Conceição","errorMessage":"must match \"^[a-zA-Z]*$\""},{"objectName":"ownerFieldsDto","fieldName":"firstName","fieldValue":"José","errorMessage":"must match \"^[a-zA-Z]*$\""}]", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def06_addPetViaPetsEndpointShouldPersist" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.033">
+    <failure message="Range for response status value 400 expected:&lt;SUCCESSFUL&gt; but was:&lt;CLIENT_ERROR&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Range for response status value 400 expected:<SUCCESSFUL> but was:<CLIENT_ERROR>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is2xxSuccessful$3(StatusResultMatchers.java:79)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def06_addPetViaPetsEndpointShouldPersist(KnownDefectsRegressionTests.java:106)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[WARN  SqlExceptionHelper - SQL Error: -10, SQLState: 23502
+ERROR SqlExceptionHelper - integrity constraint violation: NOT NULL check constraint ; SYS_CT_10110 table: PETS column: OWNER_ID
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"112"]
+             Body = {"firstName":"Cesar","lastName":"Petsendpoint","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/15", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Cesar","lastName":"Petsendpoint","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":15,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/15
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"81"]
+             Body = {"name":"Tom","birthDate":"2020-01-01","type":{"id":1,"name":"cat"},"ownerId":15}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.PetRestController
+           Method = org.springframework.samples.petclinic.rest.controller.PetRestController#addPet(PetDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.dao.DataIntegrityViolationException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"405", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check constraint ; SYS_CT_10110 table: PETS column: OWNER_ID] [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; SQL [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; constraint [null]"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def01_elevenDigitTelephoneShouldBeAccepted" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.011">
+    <failure message="Status expected:&lt;201&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<201> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def01_elevenDigitTelephoneShouldBeAccepted(KnownDefectsRegressionTests.java:55)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"108"]
+             Body = {"firstName":"Joao","lastName":"Telefone","address":"Rua A, 1","city":"Sao Paulo","telephone":"11999998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = jakarta.validation.ConstraintViolationException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"543", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"className":"jakarta.validation.ConstraintViolationException","exMessage":"Validation failed for classes [org.springframework.samples.petclinic.model.Owner] during persist time for groups [jakarta.validation.groups.Default, ]\nList of constraint violations:[\n\tConstraintViolationImpl{interpolatedMessage='valor númerico fora do limite (<10 dígito>.<0 dígitos> esperar)', propertyPath=telephone, rootBeanClass=class org.springframework.samples.petclinic.model.Owner, messageTemplate='{jakarta.validation.constraints.Digits.message}'}\n]"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def13_forbiddenShouldReturn403" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.008">
+    <failure message="Status expected:&lt;403&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<403> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def13_forbiddenShouldReturn403(KnownDefectsRegressionTests.java:166)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_VET_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_VET_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#listOwners(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.security.access.AccessDeniedException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"104", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"className":"org.springframework.security.access.AccessDeniedException","exMessage":"Access is denied"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def09_unknownSpecialtyShouldBeRejected" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.029">
+    <failure message="Range for response status value 204 expected:&lt;CLIENT_ERROR&gt; but was:&lt;SUCCESSFUL&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Range for response status value 204 expected:<CLIENT_ERROR> but was:<SUCCESSFUL>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is4xxClientError$5(StatusResultMatchers.java:95)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def09_unknownSpecialtyShouldBeRejected(KnownDefectsRegressionTests.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/vets/1
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"94"]
+             Body = {"id":1,"firstName":"James","lastName":"Carter","specialties":[{"id":77,"name":"cardiology"}]}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_VET_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_VET_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.VetRestController
+           Method = org.springframework.samples.petclinic.rest.controller.VetRestController#updateVet(Integer, VetDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 204
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"James","lastName":"Carter","specialties":[],"id":1}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def04_addPetToUnknownOwnerShouldReturn404" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.012">
+    <failure message="Status expected:&lt;404&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<404> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def04_addPetToUnknownOwnerShouldReturn404(KnownDefectsRegressionTests.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[WARN  SqlExceptionHelper - SQL Error: -177, SQLState: 23503
+ERROR SqlExceptionHelper - integrity constraint violation: foreign key no parent ; FK_PETS_OWNERS table: PETS value: 987654
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners/987654/pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"68"]
+             Body = {"name":"Rex","birthDate":"2020-01-15","type":{"id":2,"name":"dog"}}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addPetToOwner(Integer, PetFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.dao.DataIntegrityViolationException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"410", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no parent ; FK_PETS_OWNERS table: PETS value: 987654] [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; SQL [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; constraint [FK_PETS_OWNERS]"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="def11_updateOwnerShouldReturn200WithBody" classname="org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests" time="0.016">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;204&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<204>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at org.springframework.samples.petclinic.integration.KnownDefectsRegressionTests.def11_updateOwnerShouldReturn200WithBody(KnownDefectsRegressionTests.java:157)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"111"]
+             Body = {"firstName":"Davi","lastName":"Updatestatus","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#addOwner(OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Location:"/api/owners/16", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Davi","lastName":"Updatestatus","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":16,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = /api/owners/16
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/owners/16
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"111"]
+             Body = {"firstName":"Davi","lastName":"Updatestatus","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888"}
+    Session Attrs = {SPRING_SECURITY_CONTEXT=SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_OWNER_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_OWNER_ADMIN]]]}
+
+Handler:
+             Type = org.springframework.samples.petclinic.rest.controller.OwnerRestController
+           Method = org.springframework.samples.petclinic.rest.controller.OwnerRestController#updateOwner(Integer, OwnerFieldsDto)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 204
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"firstName":"Davi","lastName":"Updatestatus","address":"Rua A, 1","city":"Sao Paulo","telephone":"1199998888","id":16,"pets":[]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+</testsuite>

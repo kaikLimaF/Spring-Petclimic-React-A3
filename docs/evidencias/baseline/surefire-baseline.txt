@@ -1,0 +1,15 @@
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.611 s -- in org.springframework.samples.petclinic.service.clinicService.ClinicServiceJdbcTests
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.564 s -- in org.springframework.samples.petclinic.service.clinicService.ClinicServiceJpaTests
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.561 s -- in org.springframework.samples.petclinic.service.clinicService.ClinicServiceSpringDataJpaTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in org.springframework.samples.petclinic.service.userService.UserServiceJdbcTests
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.286 s -- in org.springframework.samples.petclinic.rest.controller.OwnerRestControllerTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in org.springframework.samples.petclinic.model.ValidatorTests
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.110 s -- in org.springframework.samples.petclinic.rest.controller.SpecialtyRestControllerTests
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s -- in org.springframework.samples.petclinic.rest.controller.PetRestControllerTests
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.255 s -- in org.springframework.samples.petclinic.rest.controller.UserRestControllerTests
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s -- in org.springframework.samples.petclinic.rest.controller.PetTypeRestControllerTests
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.519 s -- in org.springframework.samples.petclinic.rest.controller.VisitRestControllerTests
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.198 s -- in org.springframework.samples.petclinic.rest.controller.VetRestControllerTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in org.springframework.samples.petclinic.service.userService.UserServiceSpringDataJpaTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in org.springframework.samples.petclinic.service.userService.UserServiceJpaTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.996 s -- in org.springframework.samples.petclinic.SpringConfigTests

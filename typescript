@@ -1,0 +1,86 @@
+Script iniciado em 2026-11-16 19:45:21-03:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="174" LINES="18"]
+[?2004h[34;1m07:45:21 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mls [K
+[?2004l[0m[01;34mdocs[0m  README.md  [01;34mscripts[0m  [01;34mspring-petclinic-reactjs[0m  typescript
+[?2004h[34;1m07:45:22 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mls -la [K
+[?2004ltotal 28
+drwxrwxr-x 6 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 19:45 [0m[01;34m.[0m
+drwxrwxr-x 3 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 18:40 [01;34m..[0m
+drwxrwxr-x 5 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 19:25 [01;34mdocs[0m
+drwxrwxr-x 8 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 19:45 [01;34m.git[0m
+-rw-rw-r-- 1 pedro-henrique-novais-neves pedro-henrique-novais-neves 2591 nov 16 19:21 README.md
+drwxrwxr-x 2 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 19:25 [01;34mscripts[0m
+drwxrwxr-x 9 pedro-henrique-novais-neves pedro-henrique-novais-neves 4096 nov 16 19:35 [01;34mspring-petclinic-reactjs[0m
+-rw-rw-r-- 1 pedro-henrique-novais-neves pedro-henrique-novais-neves    0 nov 16 19:45 typescript
+[?2004h[34;1m07:45:26 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0m;s[K[K.scripts [K/api-blackbox [K.sh [K
+[?2004lbash: .scripts/api-blackbox.sh: Arquivo ou diretório inexistente
+[?2004h[34;1m07:45:45 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0mcd[K[Kcd
+[?2004l[?2004h[34;1m07:45:50 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1m~ [32;1m→ [0mcd [K Documentos/A#[K3/spSpring-Petclimic-React-A3/spring-petclinic-reactjs/
+[?2004l/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs
+[?2004h[34;1m07:46:02 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mspring-petclinic-reactjs ±[0;32m|master✔[0;32m|[32;1m→ [0mcd Documentos/A3/Spring-Petclimic-React-A3/spring-petclinic-reactjs/[A[34;1m07:46:02 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mspring-petclinic-reactjs ±[0;32m|master✔[0;32m|[32;1m→ [0m[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.scripts/api-blackbox.shls -la[K.scripts/api-blackbox.sh
+[?2004lbash: .scripts/api-blackbox.sh: Arquivo ou diretório inexistente
+[?2004h[34;1m07:46:04 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mspring-petclinic-reactjs ±[0;32m|master✔[0;32m|[31;1m→ [0mcd [K
+[?2004l[?2004h[34;1m07:47:19 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1m~ [32;1m→ [0mcd [K Documentos/A3/spSpring-Petclimic-React-A3/
+[?2004l/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3
+[?2004h[34;1m07:47:25 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mscr
+screendump    script        scriptlive    scriptreplay  
+[34;1m07:47:25 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mscri
+script        scriptlive    scriptreplay  
+[34;1m07:47:25 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mSpring-Petclimic-React-A3 ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mscripts
+[?2004lcd -- scripts
+/home/pedro-henrique-novais-neves/Documentos/A3/Spring-Petclimic-React-A3/scripts
+[?2004h[34;1m07:47:30 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[32;1m→ [0mscriptscd Documentos/A3/Spring-Petclimic-React-A3/[K.scripts/api-blackbox.sh
+[?2004lbash: .scripts/api-blackbox.sh: Arquivo ou diretório inexistente
+[?2004h[34;1m07:47:36 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m.scripts/api-blackbox.sh/scripts/api-blackbox.sh
+[?2004lbash: ./scripts/api-blackbox.sh: Arquivo ou diretório inexistente
+[?2004h[34;1m07:47:54 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m./scripts/api-blackbox.sh[K./scri[K[K[K[K[K[Kapi [K-blackbox [K.sh [K
+[?2004lapi-blackbox.sh: comando não encontrado
+[?2004h[34;1m07:48:17 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0mapi [K-blackbox [K.sh [K
+[?2004lapi-blackbox.sh: comando não encontrado
+[?2004h[34;1m07:48:39 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0msudo [K ap [Ki.[K-blackbox [K.sh [K
+[?2004l[sudo] senha para pedro-henrique-novais-neves: 
+sudo: api-blackbox.sh: comando não encontrado
+[?2004h[34;1m07:48:55 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m./api [K-blackbox [K.sh [K
+[?2004lPASS  CT-BB-01  GET owner existente  [esperado 200, obtido 200]
+PASS  CT-BB-02  GET owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-03  GET owners por sobrenome (Davis)  [esperado 200, obtido 200]
+PASS  CT-BB-04  GET owners sem resultado  [esperado 404, obtido 404]
+PASS  CT-BB-05  POST owner valido (10 digitos)  [esperado 201, obtido 201]
+FAIL  CT-BB-06  POST owner telefone com 11 digitos (DEF-01)  [esperado 201, obtido 400] {"className":"jakarta.validation.ConstraintViolationException","exMessage":"Validation failed for classes [org.springframework.samples.petclinic.model.Owner] du
+PASS  CT-BB-07  POST owner telefone invalido  [esperado 400, obtido 400]
+PASS  CT-BB-08  POST owner nome vazio  [esperado 400, obtido 400]
+FAIL  CT-BB-09  POST owner nome acentuado (DEF-10)  [esperado 201, obtido 400] 
+FAIL  CT-BB-10  PUT owner (contrato: 200)  (DEF-11)  [esperado 200, obtido 204] 
+PASS  CT-BB-11  PUT owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-12  GET owner id nao numerico  [esperado 400, obtido 400]
+PASS  CT-BB-13  GET owner id negativo  [esperado 400, obtido 400]
+PASS  CT-BB-14  JSON malformado  [esperado 400, obtido 400]
+FAIL  CT-BB-15  GET pet do proprio dono (DEF-02)  [esperado 200, obtido 400] 
+PASS  CT-BB-16  GET pet de outro dono  [esperado 400|404, obtido 400]
+PASS  CT-BB-17  POST pet valido para owner 1  [esperado 201, obtido 201]
+FAIL  CT-BB-18  POST pet para owner inexistente (DEF-04)  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-19  POST pet sem nome  [esperado 400, obtido 400]
+PASS  CT-BB-20  GET /api/pets  [esperado 200, obtido 200]
+FAIL  CT-BB-21  POST /api/pets com ownerId (DEF-06)  [esperado 200|201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check 
+FAIL  CT-BB-22  PUT /api/owners/1/pets/1 (contrato, DEF-12)  [esperado 204, obtido 501] 
+PASS  CT-BB-23  POST visita valida  [esperado 201, obtido 201]
+PASS  CT-BB-24  POST visita descricao vazia  [esperado 400, obtido 400]
+FAIL  CT-BB-25  POST visita pet de outro dono (DEF-05)  [esperado 400|404, obtido 201] {"date":"2024-01-01","description":"x","id":6,"petId":1}
+FAIL  CT-BB-26  POST visita pet inexistente  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-27  GET visitas  [esperado 200, obtido 200]
+PASS  CT-BB-28  DELETE visita inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-29  GET vets  [esperado 200, obtido 200]
+PASS  CT-BB-30  GET vet inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-31  POST vet com especialidade  [esperado 201, obtido 201]
+FAIL  CT-BB-32  PUT vet especialidade inexistente (DEF-09)  [esperado 400|404, obtido 204] 
+PASS  CT-BB-33  GET pettypes  [esperado 200, obtido 200]
+PASS  CT-BB-34  POST pettype com id informado  [esperado 400, obtido 400]
+PASS  CT-BB-35  GET specialties  [esperado 200, obtido 200]
+PASS  CT-BB-36  POST user sem roles  [esperado 400, obtido 400]
+PASS  CT-BB-37  POST user valido  [esperado 201, obtido 201]
+FAIL  CT-BB-38  POST user senha > 20 chars (DEF-07)  [esperado 201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [data exception: string data, right truncation ;
+PASS  CT-BB-39  GET actuator/health  [esperado 200, obtido 200]
+PASS  CT-BB-40  GET swagger-ui  [esperado 200, obtido 200]
+------------------------------------------------------------
+TOTAL: 40  PASS: 29  FAIL: 11
+[?2004h[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;1mscripts ±[0;32m|main [0;31m✗[0;32m|[31;1m→ [0m[K[34;1m07:50:20 [0;97m[0;97m[90;1mpedro-henrique-novais-neves@pedro-henrique-novais-neves-Aspire-AG15-71P [36;

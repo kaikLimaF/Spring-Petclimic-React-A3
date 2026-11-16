@@ -1,0 +1,608 @@
+### BB-01 GET owner 1 (válido)
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"firstName":"George","lastName":"Franklin","address":"110 W. Liberty St.","city":"Madison","telephone":"6085551023","id":1,"pets":[{"name":"Leo","birthDate":"2010-09-07","type":{"name":"cat","id":1},"id":1,"ownerId":1,"visits":[]}]}
+### BB-02 GET owner 999 (inexistente)
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-03 GET owners?lastName=Davis
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+[{"firstName":"Betty","lastName":"Davis","address":"638 Cardinal Ave.","city":"Sun Prairie","telephone":"6085551749","id":2,"pets":[{"name":"Basil","birthDate":"2012-08-06","type":{"name":"hamster","id":6},"id":2,"ownerId":2,"visits":[]}]},{"firstName":"Harold","lastName":"Davis","address":"563 Friendly St.","city":"Windsor","telephone":"6085553198","id":4,"pets":[{"name":"Iggy","birthDate":"2010-11-30","type":{"name":"lizard","id":3},"id":5,"ownerId":4,"visits":[]}]}]
+### BB-04 GET owners?lastName=Zzz (sem resultado)
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-05 POST owner válido
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 543
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"jakarta.validation.ConstraintViolationException","exMessage":"Validation failed for classes [org.springframework.samples.petclinic.model.Owner] during persist time for groups [jakarta.validation.groups.Default, ]\nList of constraint violations:[\n\tConstraintViolationImpl{interpolatedMessage='valor númerico fora do limite (<10 dígito>.<0 dígitos> esperar)', propertyPath=telephone, rootBeanClass=class org.springframework.samples.petclinic.model.Owner, messageTemplate='{jakarta.validation.constraints.Digits.message}'}\n]"}
+### BB-06 POST owner telefone inválido
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+errors: [{"objectName":"ownerFieldsDto","fieldName":"telephone","fieldValue":"11-9999","errorMessage":"deve corresponder a \"^[0-9]*$\""}]
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-07 POST owner firstName com acento (José)
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+errors: [{"objectName":"ownerFieldsDto","fieldName":"firstName","fieldValue":"Jos�","errorMessage":"deve corresponder a \"^[a-zA-Z]*$\""}]
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-08 POST owner firstName vazio
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+errors: [{"objectName":"ownerFieldsDto","fieldName":"firstName","fieldValue":"","errorMessage":"tamanho deve ser entre 1 e 30"}]
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-09 PUT owner 1
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-10 GET owner id não numérico
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 222
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.web.method.annotation.MethodArgumentTypeMismatchException","exMessage":"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: \"abc\""}
+### BB-11 GET owner id negativo
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 125
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"jakarta.validation.ConstraintViolationException","exMessage":"getOwner.arg0: deve ser maior que ou igual à 0"}
+### BB-12 GET /api/owners/1/pets/1 (pet 1 pertence ao owner 1)
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-13 GET /api/owners/2/pets/1 (pet 1 NÃO pertence ao owner 2)
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-14 POST pet para owner inexistente 999
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 407
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no parent ; FK_PETS_OWNERS table: PETS value: 999] [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; SQL [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; constraint [FK_PETS_OWNERS]"}
+### BB-15 POST pet com tipo inexistente
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 404
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check constraint ; SYS_CT_10109 table: PETS column: TYPE_ID] [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; SQL [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; constraint [null]"}
+### BB-16 POST pet válido owner 1
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/pets/16
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"name":"Rex","birthDate":"2020-01-01","type":{"name":"dog","id":2},"id":16,"ownerId":1,"visits":[]}
+### BB-17 POST visita para pet que não é do owner (owner 2, pet 1)
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: /api/visits/5
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"date":"2024-01-01","description":"checkup","id":5,"petId":1}
+### BB-18 POST visita para pet inexistente
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 403
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no parent ; FK_VISITS_PETS table: VISITS value: 999] [insert into visits (visit_date,description,pet_id,id) values (?,?,?,default)]; SQL [insert into visits (visit_date,description,pet_id,id) values (?,?,?,default)]; constraint [FK_VISITS_PETS]"}
+### BB-19 POST visita descrição vazia
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+errors: [{"objectName":"visitFieldsDto","fieldName":"description","fieldValue":"","errorMessage":"tamanho deve ser entre 1 e 255"}]
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+
+### BB-20 POST /api/pets (status esperado 201)
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 405
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check constraint ; SYS_CT_10110 table: PETS column: OWNER_ID] [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; SQL [insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)]; constraint [null]"}
+### BB-21 POST /api/users senha > 20 chars
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 339
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [data exception: string data, right truncation ; size limit: 20 table: USERS column: PASSWORD] [insert into users (enabled,password,username) values (?,?,?)]; SQL [insert into users (enabled,password,username) values (?,?,?)]"}
+### BB-22 POST /api/users sem roles
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 100
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"java.lang.IllegalArgumentException","exMessage":"User must have at least a role set!"}
+### BB-23 POST /api/users válido
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"username":"qa3","password":"abc","enabled":true,"roles":[{"name":"ROLE_OWNER_ADMIN"}]}
+### BB-24 CORS preflight DELETE de localhost:4444
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: DELETE
+Access-Control-Expose-Headers: errors, content-type
+Access-Control-Max-Age: 1800
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-25 CORS preflight GET de localhost:4444
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET
+Access-Control-Expose-Headers: errors, content-type
+Access-Control-Max-Age: 1800
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-26 CORS preflight de origem desconhecida
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET
+Access-Control-Expose-Headers: errors, content-type
+Access-Control-Max-Age: 1800
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-27 DELETE visit 1
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-28 DELETE visit 1 novamente (idempotência)
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-29 GET /api/vets
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+[{"firstName":"James","lastName":"Carter","specialties":[],"id":1},{"firstName":"Helen","lastName":"Leary","specialties":[{"id":1,"name":"radiology"}],"id":2},{"firstName":"Linda","lastName":"Douglas","specialties":[{"id":3,"name":"dentistry"},{"id":2,"name":"surgery"}],"id":3},{"firstName":"Rafael","lastName":"Ortega","specialties":[{"id":2,"name":"surgery"}],"id":4},{"firstName":"Henry","lastName":"Stevens","specialties":[{"id":1,"name":"radiology"}],"id":5},{"firstName":"Sharon","lastName":"Jenkins","specialties":[],"id":6}]
+### BB-30 PUT vet 1 com especialidade inexistente
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-31 GET vet 1 após update
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"firstName":"James","lastName":"Carter","specialties":[],"id":1}
+### BB-32 JSON malformado
+HTTP/1.1 400 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 168
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+Connection: close
+
+{"className":"org.springframework.http.converter.HttpMessageNotReadableException","exMessage":"JSON parse error: Unexpected end-of-input within/between Object entries"}
+### BB-33 GET /actuator/health
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/vnd.spring-boot.actuator.v3+json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"status":"UP"}
+### BB-34 GET /actuator (lista)
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/vnd.spring-boot.actuator.v3+json
+Transfer-Encoding: chunked
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+{"_links":{"self":{"href":"http://localhost:9966/petclinic/actuator","templated":false},"health":{"href":"http://localhost:9966/petclinic/actuator/health","templated":false},"health-path":{"href":"http://localhost:9966/petclinic/actuator/health/{*path}","templated":true}}}
+### BB-35 GET /v3/api-docs sem auth
+HTTP/1.1 401 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Set-Cookie: JSESSIONID=86A788208B060242A014A63BDC47EBCF; Path=/petclinic; HttpOnly
+WWW-Authenticate: Basic realm="Realm"
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-36 DELETE owner 10 (cascata pets 12,13)
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+
+### BB-37 GET pet 12 após delete owner
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 0
+Date: Mon, 16 Nov 2026 21:53:09 GMT
+
+

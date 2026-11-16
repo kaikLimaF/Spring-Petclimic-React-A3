@@ -1,0 +1,89 @@
+=== security DISABLED (configuracao padrao) ===
+PASS  CT-BB-01  GET owner existente  [esperado 200, obtido 200]
+PASS  CT-BB-02  GET owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-03  GET owners por sobrenome (Davis)  [esperado 200, obtido 200]
+PASS  CT-BB-04  GET owners sem resultado  [esperado 404, obtido 404]
+PASS  CT-BB-05  POST owner valido (10 digitos)  [esperado 201, obtido 201]
+FAIL  CT-BB-06  POST owner telefone com 11 digitos (DEF-01)  [esperado 201, obtido 400] {"className":"jakarta.validation.ConstraintViolationException","exMessage":"Validation failed for classes [org.springframework.samples.petclinic.model.Owner] du
+PASS  CT-BB-07  POST owner telefone invalido  [esperado 400, obtido 400]
+PASS  CT-BB-08  POST owner nome vazio  [esperado 400, obtido 400]
+FAIL  CT-BB-09  POST owner nome acentuado (DEF-10)  [esperado 201, obtido 400] 
+FAIL  CT-BB-10  PUT owner (contrato: 200)  (DEF-11)  [esperado 200, obtido 204] 
+PASS  CT-BB-11  PUT owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-12  GET owner id nao numerico  [esperado 400, obtido 400]
+PASS  CT-BB-13  GET owner id negativo  [esperado 400, obtido 400]
+PASS  CT-BB-14  JSON malformado  [esperado 400, obtido 400]
+FAIL  CT-BB-15  GET pet do proprio dono (DEF-02)  [esperado 200, obtido 400] 
+PASS  CT-BB-16  GET pet de outro dono  [esperado 400|404, obtido 400]
+PASS  CT-BB-17  POST pet valido para owner 1  [esperado 201, obtido 201]
+FAIL  CT-BB-18  POST pet para owner inexistente (DEF-04)  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-19  POST pet sem nome  [esperado 400, obtido 400]
+PASS  CT-BB-20  GET /api/pets  [esperado 200, obtido 200]
+FAIL  CT-BB-21  POST /api/pets com ownerId (DEF-06)  [esperado 200|201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check 
+FAIL  CT-BB-22  PUT /api/owners/1/pets/1 (contrato, DEF-12)  [esperado 204, obtido 501] 
+PASS  CT-BB-23  POST visita valida  [esperado 201, obtido 201]
+PASS  CT-BB-24  POST visita descricao vazia  [esperado 400, obtido 400]
+FAIL  CT-BB-25  POST visita pet de outro dono (DEF-05)  [esperado 400|404, obtido 201] {"date":"2024-01-01","description":"x","id":6,"petId":1}
+FAIL  CT-BB-26  POST visita pet inexistente  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-27  GET visitas  [esperado 200, obtido 200]
+PASS  CT-BB-28  DELETE visita inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-29  GET vets  [esperado 200, obtido 200]
+PASS  CT-BB-30  GET vet inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-31  POST vet com especialidade  [esperado 201, obtido 201]
+FAIL  CT-BB-32  PUT vet especialidade inexistente (DEF-09)  [esperado 400|404, obtido 204] 
+PASS  CT-BB-33  GET pettypes  [esperado 200, obtido 200]
+PASS  CT-BB-34  POST pettype com id informado  [esperado 400, obtido 400]
+PASS  CT-BB-35  GET specialties  [esperado 200, obtido 200]
+PASS  CT-BB-36  POST user sem roles  [esperado 400, obtido 400]
+PASS  CT-BB-37  POST user valido  [esperado 201, obtido 201]
+FAIL  CT-BB-38  POST user senha > 20 chars (DEF-07)  [esperado 201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [data exception: string data, right truncation ;
+PASS  CT-BB-39  GET actuator/health  [esperado 200, obtido 200]
+PASS  CT-BB-40  GET swagger-ui  [esperado 200, obtido 200]
+------------------------------------------------------------
+TOTAL: 40  PASS: 29  FAIL: 11
+script exit=1
+
+=== security ENABLED (petclinic.security.enable=true, admin/admin) ===
+PASS  CT-BB-01  GET owner existente  [esperado 200, obtido 200]
+PASS  CT-BB-02  GET owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-03  GET owners por sobrenome (Davis)  [esperado 200, obtido 200]
+PASS  CT-BB-04  GET owners sem resultado  [esperado 404, obtido 404]
+PASS  CT-BB-05  POST owner valido (10 digitos)  [esperado 201, obtido 201]
+FAIL  CT-BB-06  POST owner telefone com 11 digitos (DEF-01)  [esperado 201, obtido 400] {"className":"jakarta.validation.ConstraintViolationException","exMessage":"Validation failed for classes [org.springframework.samples.petclinic.model.Owner] du
+PASS  CT-BB-07  POST owner telefone invalido  [esperado 400, obtido 400]
+PASS  CT-BB-08  POST owner nome vazio  [esperado 400, obtido 400]
+FAIL  CT-BB-09  POST owner nome acentuado (DEF-10)  [esperado 201, obtido 400] 
+FAIL  CT-BB-10  PUT owner (contrato: 200)  (DEF-11)  [esperado 200, obtido 204] 
+PASS  CT-BB-11  PUT owner inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-12  GET owner id nao numerico  [esperado 400, obtido 400]
+PASS  CT-BB-13  GET owner id negativo  [esperado 400, obtido 400]
+PASS  CT-BB-14  JSON malformado  [esperado 400, obtido 400]
+FAIL  CT-BB-15  GET pet do proprio dono (DEF-02)  [esperado 200, obtido 400] 
+PASS  CT-BB-16  GET pet de outro dono  [esperado 400|404, obtido 400]
+PASS  CT-BB-17  POST pet valido para owner 1  [esperado 201, obtido 201]
+FAIL  CT-BB-18  POST pet para owner inexistente (DEF-04)  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-19  POST pet sem nome  [esperado 400, obtido 400]
+PASS  CT-BB-20  GET /api/pets  [esperado 200, obtido 200]
+FAIL  CT-BB-21  POST /api/pets com ownerId (DEF-06)  [esperado 200|201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: NOT NULL check 
+FAIL  CT-BB-22  PUT /api/owners/1/pets/1 (contrato, DEF-12)  [esperado 204, obtido 501] 
+PASS  CT-BB-23  POST visita valida  [esperado 201, obtido 201]
+PASS  CT-BB-24  POST visita descricao vazia  [esperado 400, obtido 400]
+FAIL  CT-BB-25  POST visita pet de outro dono (DEF-05)  [esperado 400|404, obtido 201] {"date":"2024-01-01","description":"x","id":6,"petId":1}
+FAIL  CT-BB-26  POST visita pet inexistente  [esperado 404, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [integrity constraint violation: foreign key no 
+PASS  CT-BB-27  GET visitas  [esperado 200, obtido 200]
+PASS  CT-BB-28  DELETE visita inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-29  GET vets  [esperado 200, obtido 200]
+PASS  CT-BB-30  GET vet inexistente  [esperado 404, obtido 404]
+PASS  CT-BB-31  POST vet com especialidade  [esperado 201, obtido 201]
+FAIL  CT-BB-32  PUT vet especialidade inexistente (DEF-09)  [esperado 400|404, obtido 204] 
+PASS  CT-BB-33  GET pettypes  [esperado 200, obtido 200]
+PASS  CT-BB-34  POST pettype com id informado  [esperado 400, obtido 400]
+PASS  CT-BB-35  GET specialties  [esperado 200, obtido 200]
+PASS  CT-BB-36  POST user sem roles  [esperado 400, obtido 400]
+PASS  CT-BB-37  POST user valido  [esperado 201, obtido 201]
+FAIL  CT-BB-38  POST user senha > 20 chars (DEF-07)  [esperado 201, obtido 400] {"className":"org.springframework.dao.DataIntegrityViolationException","exMessage":"could not execute statement [data exception: string data, right truncation ;
+PASS  CT-BB-39  GET actuator/health  [esperado 200, obtido 200]
+PASS  CT-BB-40  GET swagger-ui  [esperado 200, obtido 200]
+------------------------------------------------------------
+TOTAL: 40  PASS: 29  FAIL: 11
+script exit=1
