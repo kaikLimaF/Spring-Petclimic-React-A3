@@ -19,7 +19,7 @@
 | **P3** | Listagens vazias → 200 + `[]`; `/actuator/health` público; `logging.level=INFO` em produção; `@GetMapping` em `RootRestController` | OBS-01, OBS-02, Sonar S3752 | Muito baixo | Operação |
 | **P3** | Quality Gate SonarQube próprio ("código geral", não só novo): 0 bugs/vulnerabilidades críticas, cobertura ≥ 85 % | Gate padrão passou apesar de 7 bugs críticos | Muito baixo | Governança |
 | **P3** | Testes de contrato automatizados (ex.: validação do `openapi.yml` contra respostas reais com REST Assured/OpenAPI validator) e testes de UI (Cypress) | Divergências contrato × implementação só foram vistas manualmente | Médio | Prevenção |
-| **P3** | Testes de desempenho básicos (k6/JMeter) nos endpoints de listagem (`EAGER` em pets/visitas pode degradar com volume) | `Owner.pets` e `Pet.visits` com `FetchType.EAGER` | Médio | Desempenho |
+| **P2** | Paginação nas listagens e carregamento `LAZY` (ou DTO de listagem) para `Owner.pets`, `Pet.visits`, `Vet.specialties` | k6 mostra que as listas com `EAGER` são as mais caras e crescem com o volume (doc 14) | Médio | Desempenho |
 
 ## 12.2 Melhorias já aplicadas pela equipe de QA (neste repositório)
 
@@ -28,6 +28,7 @@
 | +102 testes automatizados (unitários, integração, API, segurança) na execução padrão | `src/test/java/.../{service,model,util,rest,integration}` |
 | Suíte de regressão de defeitos conhecidos com tag/profile | `KnownDefectsRegressionTests`, `pom.xml` (`known-defects`) |
 | Cobertura de 87,2 % → 91,7 % (linhas) e 67,2 % → 76,6 % (branches) | JaCoCo |
+| Testes de carga e desempenho com k6 (5 cenários, thresholds, evidências) | `scripts/perf/`, `docs/14-testes-de-carga-e-desempenho.md` |
 | Script caixa-preta reproduzível e coleção Postman | `scripts/api-blackbox.sh`, `docs/postman/` |
 | Integração com SonarQube (propriedades no `pom.xml`, exclusão de código gerado) | `pom.xml` |
 | CI atualizado: JDK 21, JaCoCo ativo, artefatos, suíte de defeitos, Trivy | `.github/workflows/maven-build.yml` |

@@ -30,6 +30,7 @@ Os requisitos foram derivados do contrato OpenAPI (`openapi.yml`), do código do
 | RNF-07 | Dependências **sem vulnerabilidades críticas** conhecidas | política de segurança |
 | RNF-08 | Implementação **aderente ao contrato** OpenAPI (status, corpos, endpoints) | `openapi.yml` |
 | RNF-09 | Código **manutenível**: sem bugs/vulnerabilidades críticas no SonarQube, baixa duplicação | SonarQube |
+| RNF-11 | **Desempenho**: p95 < 500 ms e erro < 1 % sob 30 usuários simultâneos; sem 5xx em stress/pico | plano de testes (CA-09) |
 | RNF-10 | Pipeline de **integração contínua** executa build, testes e cobertura | GitHub Actions |
 
 ## 3.2 Matriz Requisito × Casos de Teste × Defeitos
@@ -57,14 +58,15 @@ Legenda dos casos: **CT-BB** caixa-preta (`scripts/api-blackbox.sh` / Postman / 
 | RNF-07 Dependências | Trivy | — | DEF-15 | **Falha** — 12 CVEs críticas |
 | RNF-08 Contrato | CT-BB (status esperados), DEF-11/DEF-12 (regressão) | — | DEF-06, DEF-11, DEF-12 | **Falha** |
 | RNF-09 Manutenibilidade | SonarQube | — | DEF-16 (merge() ignorado), DEF-14 | Quality Gate OK; 7 bugs, 20 vulnerabilidades |
+| RNF-11 Desempenho | CT-PERF-01..05 (k6: smoke, desempenho, carga, stress, pico) | — | R-17 (EAGER) | OK — 5/5 cenários aprovados, 0 % erro; listagens 5× mais lentas com base ampliada |
 | RNF-10 CI | `.github/workflows/maven-build.yml` | — | — | OK (atualizado para Java 21 + JaCoCo + Trivy) |
 
 ## 3.3 Cobertura da matriz
 
 | Indicador | Valor |
 |---|---|
-| Requisitos identificados | 20 (10 RF + 10 RNF) |
-| Requisitos com ao menos um caso de teste automatizado | 19 / 20 (RF-10 apenas por revisão) |
+| Requisitos identificados | 21 (10 RF + 11 RNF) |
+| Requisitos com ao menos um caso de teste automatizado | 20 / 21 (RF-10 apenas por revisão) |
 | Requisitos com defeito associado | 13 / 20 |
 | Casos de teste caixa-preta (script) | 40 |
 | Casos de teste de integração/segurança novos | 23 (+ 13 de regressão de defeitos) |

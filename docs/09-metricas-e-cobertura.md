@@ -91,9 +91,22 @@ Maior lacuna restante: implementações MapStruct (código gerado) e `DisableSec
 | `pom.xml` | 12 | 43 | 39 | 14 | 108 |
 | `client/package-lock.json` | 0 | 1 | 3 | 0 | 4 |
 
-## 9.7 Leitura consolidada
+## 9.7 Métricas de desempenho (k6)
+
+| Cenário | VUs máx | Requisições | Req/s | Erros | p95 (ms) | Máx (ms) | Thresholds |
+|---|---|---|---|---|---|---|---|
+| Smoke | 1 | 1 056 | 35 | 0 % | 5,8 | 67,8 | ✅ |
+| Desempenho (1 VU, 200 iterações) | 1 | 1 600 | 538 | 0 % | 2,8 | 6,4 | ✅ (8 metas por endpoint) |
+| Carga sustentada (30 + 3 VUs, 3 min 20 s) | 33 | 19 997 | 100 | 0 % | 14,9 | 44,6 | ✅ |
+| Stress (até 150 VUs) | 150 | 130 363 | 766 | 0 % | 3,1 | 9,9 | ✅ |
+| Pico (salto para 200 VUs) | 200 | 70 753 | 786 | 0 % | 3,3 | 15,0 | ✅ |
+
+Detalhes, metas por endpoint e análise do efeito do volume de dados (`EAGER`): `docs/14-testes-de-carga-e-desempenho.md`.
+
+## 9.8 Leitura consolidada
 
 - **Qualidade interna** (estrutura, duplicação, complexidade, cobertura): **alta**.
 - **Qualidade externa** (conformidade funcional e de contrato): **insuficiente** — 27,5 % dos casos caixa-preta reprovados, 3 endpoints do contrato inoperantes.
 - **Segurança**: **insuficiente** — ratings D em Sonar, 12 CVEs críticas, 6 defeitos de segurança.
+- **Desempenho**: **adequado** para a escala de demonstração — 0 % de erro até 200 usuários simultâneos; atenção ao crescimento das listagens com `EAGER`.
 - A diferença entre qualidade interna alta e externa baixa é o principal achado: **métricas estruturais não substituem testes de comportamento ponta a ponta**.

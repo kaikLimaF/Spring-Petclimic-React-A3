@@ -14,7 +14,8 @@ Avaliação completa de **Quality Assurance** do sistema open source [spring-pet
 │   ├── dashboard/index.html    dashboard de métricas
 │   ├── postman/                coleção Postman
 │   └── evidencias/             JaCoCo, Surefire, SonarQube, Trivy, sondagens
-└── scripts/api-blackbox.sh     suíte caixa-preta reproduzível (curl)
+├── scripts/api-blackbox.sh     suíte caixa-preta reproduzível (curl)
+└── scripts/perf/               cenários k6 (smoke, desempenho, carga, stress, pico)
 ```
 
 Comece por **[docs/README.md](docs/README.md)**.
@@ -34,6 +35,7 @@ cd spring-petclinic-reactjs
 ./mvnw verify                                            # 285 testes + JaCoCo (target/site/jacoco/index.html)
 ./mvnw test -Pknown-defects -Dtest=KnownDefectsRegressionTests   # 13 testes que reproduzem os defeitos abertos
 cd .. && ./scripts/api-blackbox.sh                       # 40 casos caixa-preta (app em execução)
+./scripts/perf/run-all.sh                                # 5 cenários k6 de carga/desempenho (Docker, app em execução)
 ```
 
 ## Resultado da avaliação (resumo)
@@ -46,6 +48,7 @@ cd .. && ./scripts/api-blackbox.sh                       # 40 casos caixa-preta 
 | Defeitos registrados | 16 (7 Alta · 6 Média · 3 Baixa) |
 | SonarQube | 7 bugs · 20 vulnerabilidades · 2 code smells · 0 % duplicação |
 | Trivy | 108 CVEs em dependências (12 críticas) |
+| Carga e desempenho (k6) | 5 cenários aprovados · 0 % erro até 200 usuários · p95 ≤ 15 ms |
 | **Quality Decision** | **NO-GO para produção · GO condicional para demonstração** |
 
 Licença do sistema avaliado: Apache License 2.0 (`spring-petclinic-reactjs/LICENSE.txt`).

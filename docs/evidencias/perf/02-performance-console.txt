@@ -1,0 +1,97 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/02-performance.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 200 iterations shared among 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+running (00m01.0s), 1/1 VUs, 56 complete and 0 interrupted iterations
+default   [  28% ] 1 VUs  00m01.0s/10m0s  056/200 shared iters
+
+running (00m02.0s), 1/1 VUs, 126 complete and 0 interrupted iterations
+default   [  63% ] 1 VUs  00m02.0s/10m0s  126/200 shared iters
+
+
+  █ THRESHOLDS 
+
+    http_req_duration{name:owner-by-id}
+    ✓ 'p(95)<100' p(95)=2.77ms
+
+    http_req_duration{name:owners-list}
+    ✓ 'p(95)<300' p(95)=2.83ms
+
+    http_req_duration{name:owners-search}
+    ✓ 'p(95)<150' p(95)=2.95ms
+
+    http_req_duration{name:pets-list}
+    ✓ 'p(95)<300' p(95)=3.07ms
+
+    http_req_duration{name:pettypes}
+    ✓ 'p(95)<100' p(95)=1.96ms
+
+    http_req_duration{name:specialties}
+    ✓ 'p(95)<100' p(95)=2ms
+
+    http_req_duration{name:vets-list}
+    ✓ 'p(95)<150' p(95)=2.27ms
+
+    http_req_duration{name:visits-list}
+    ✓ 'p(95)<150' p(95)=2.35ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1600    538.43188/s
+    checks_succeeded...: 100.00% 1600 out of 1600
+    checks_failed......: 0.00%   0 out of 1600
+
+    ✓ pettypes 200
+    ✓ owners-list 200
+    ✓ owner-by-id 200
+    ✓ owners-search 200
+    ✓ pets-list 200
+    ✓ vets-list 200
+    ✓ visits-list 200
+    ✓ specialties 200
+
+    HTTP
+    http_req_duration..............: avg=1.73ms  min=599.55µs med=1.64ms  max=6.41ms p(90)=2.39ms  p(95)=2.75ms 
+      { expected_response:true }...: avg=1.73ms  min=599.55µs med=1.64ms  max=6.41ms p(90)=2.39ms  p(95)=2.75ms 
+      { name:owner-by-id }.........: avg=1.83ms  min=1.04ms   med=1.73ms  max=4.58ms p(90)=2.52ms  p(95)=2.77ms 
+      { name:owners-list }.........: avg=1.94ms  min=1.14ms   med=1.82ms  max=5.18ms p(90)=2.61ms  p(95)=2.83ms 
+      { name:owners-search }.......: avg=2.02ms  min=981.45µs med=1.88ms  max=5.73ms p(90)=2.73ms  p(95)=2.95ms 
+      { name:pets-list }...........: avg=2.06ms  min=1.18ms   med=1.94ms  max=6.41ms p(90)=2.81ms  p(95)=3.07ms 
+      { name:pettypes }............: avg=1.36ms  min=599.55µs med=1.28ms  max=4.75ms p(90)=1.79ms  p(95)=1.96ms 
+      { name:specialties }.........: avg=1.39ms  min=818.42µs med=1.31ms  max=3.1ms  p(90)=1.89ms  p(95)=2ms    
+      { name:vets-list }...........: avg=1.6ms   min=966.52µs med=1.52ms  max=3.5ms  p(90)=2.1ms   p(95)=2.27ms 
+      { name:visits-list }.........: avg=1.64ms  min=948.12µs med=1.57ms  max=4.75ms p(90)=2.19ms  p(95)=2.35ms 
+    http_req_failed................: 0.00%  0 out of 1600
+    http_reqs......................: 1600   538.43188/s
+
+    EXECUTION
+    iteration_duration.............: avg=14.84ms min=9.99ms   med=14.41ms max=26.8ms p(90)=17.98ms p(95)=19.81ms
+    iterations.....................: 200    67.303985/s
+    vus............................: 1      min=1         max=1
+    vus_max........................: 1      min=1         max=1
+
+    NETWORK
+    data_received..................: 1.9 MB 629 kB/s
+    data_sent......................: 207 kB 70 kB/s
+
+
+
+
+running (00m03.0s), 0/1 VUs, 200 complete and 0 interrupted iterations
+default ✓ [ 100% ] 1 VUs  00m03.0s/10m0s  200/200 shared iters

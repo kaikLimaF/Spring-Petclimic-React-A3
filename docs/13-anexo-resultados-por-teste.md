@@ -9,6 +9,7 @@ Anexo pensado para o **pitch**: explica, em linguagem direta, cada grupo de test
 | Suíte automatizada padrão (`./mvnw verify`) | 285 | 285 | 0 | O que o sistema já faz certo e o que foi verificado. |
 | Testes de defeitos conhecidos (`-Pknown-defects`) | 13 | 0 | 13 | Cada falha é um defeito real: o teste afirma o comportamento correto e o sistema não o cumpre. |
 | Casos caixa-preta (`scripts/api-blackbox.sh`) | 40 | 29 | 11 | Mesmos defeitos, vistos de fora, pela API em execução. |
+| Cenários k6 de carga e desempenho (`scripts/perf/run-all.sh`) | 5 | 5 | 0 | 0 % de erro até 200 usuários simultâneos; p95 ≤ 15 ms (doc 14). |
 
 **Frase para o pitch:** "A suíte original já passava 100 % e cobria 87 %. Mesmo assim, ao testar o sistema de ponta a ponta sem mocks, 13 comportamentos corretos esperados falharam e 11 de 40 casos externos reprovaram. Cada falha é um defeito rastreado até a linha de código responsável."
 

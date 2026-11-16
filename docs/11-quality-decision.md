@@ -15,9 +15,10 @@
 | CA-05 | Segurança da aplicação | Sem bypass; sem exposição de senhas/SQL; CORS restrito | Autenticação e autorização **funcionam** (CT-SEC-01..08, sem bypass); porém senha devolvida e em texto puro (DEF-07), CORS `*` (DEF-08), SQL/classes expostos (DEF-03), 403→400 (DEF-13) | ❌ Não atende |
 | CA-06 | Segurança de dependências | 0 CVEs críticas | Trivy: **108 CVEs (12 críticas, 43 altas)** em `pom.xml`; 4 no cliente (DEF-15) | ❌ Não atende |
 | CA-07 | Qualidade estática | Quality Gate OK; 0 bugs blocker/critical; rating segurança ≥ B | Quality Gate **OK** (só avalia código novo); **7 bugs Critical** (S8975); rating confiabilidade **D**, segurança **D**; 20 vulnerabilidades | ❌ Não atende |
+| CA-09 | Desempenho sob carga | p95 < 500 ms e erro < 1 % com 30 VUs; sem 5xx em stress/pico | k6: carga 30 VUs → p95 **15 ms**, 0 % erro; stress 150 VUs → p95 3,1 ms; pico 200 VUs → p95 3,3 ms; 0 % erro em todos (`docs/14`) | ✅ Atende |
 | CA-08 | Manutenibilidade | Duplicação < 3 %; dívida < 1 dia | Duplicação **0,0 %**; dívida **10 min**; rating manutenibilidade **A**; complexidade cognitiva média < 1/função | ✅ Atende |
 
-**Placar: 3 critérios atendidos / 5 não atendidos.** Todos os critérios de **segurança** e **conformidade funcional** falharam.
+**Placar: 4 critérios atendidos / 5 não atendidos.** Todos os critérios de **segurança** e **conformidade funcional** falharam.
 
 ## 11.3 Decisão
 
@@ -29,7 +30,7 @@
 1. **Funcionalidades do contrato inutilizáveis ou incorretas.** `GET /owners/{id}/pets/{petId}` devolve 400 em 100 % dos casos (DEF-02), `POST /pets` nunca persiste (DEF-06), `PUT /owners/{id}/pets/{petId}` não existe (DEF-12) e telefones brasileiros são rejeitados (DEF-01). Reproduzido por 13 testes automatizados de regressão e 11 casos caixa-preta.
 2. **Integridade de negócio comprometida.** É possível registrar visitas em pets de outros proprietários (DEF-05) e apagar especialidades de um veterinário silenciosamente (DEF-09).
 3. **Segurança insuficiente para produção.** Senhas em texto puro e devolvidas pela API (DEF-07), CORS aberto a qualquer origem (DEF-08), mensagens de erro que revelam esquema do banco e classes internas (DEF-03/DEF-13), configuração de filtros dependente da ordem de carga (DEF-14) e **12 CVEs críticas** nas dependências, incluindo RCE e bypass de autenticação no Tomcat embarcado (DEF-15).
-4. **Pontos fortes que sustentam o "GO condicional" para demonstração:** arquitetura limpa e de baixa complexidade, 0 % de duplicação, suíte de testes robusta (285 testes verdes, cobertura 91,7 %), autenticação/autorização efetivamente aplicadas, pipeline de CI com cobertura e varredura de dependências.
+4. **Pontos fortes que sustentam o "GO condicional" para demonstração:** arquitetura limpa e de baixa complexidade, 0 % de duplicação, suíte de testes robusta (285 testes verdes, cobertura 91,7 %), desempenho folgado (0 % de erro até 200 usuários simultâneos, p95 de poucos milissegundos), autenticação/autorização efetivamente aplicadas, pipeline de CI com cobertura e varredura de dependências.
 
 ## 11.4 Condições para converter em GO (critério de saída da próxima iteração)
 

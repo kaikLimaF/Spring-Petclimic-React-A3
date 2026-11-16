@@ -29,7 +29,7 @@
 <body>
 <header>
   <h1>Dashboard de Qualidade — Spring PetClinic (React) · A3 QA</h1>
-  <div class="sub">Versão avaliada 3.2.1 · evidências de 16/11/2026 · JaCoCo, Surefire, SonarQube 26.11, Trivy, script caixa-preta</div>
+  <div class="sub">Versão avaliada 3.2.1 · evidências de 16/11/2026 · JaCoCo, Surefire, SonarQube 26.11, Trivy, k6, script caixa-preta</div>
 </header>
 
 <div class="grid">
@@ -45,6 +45,7 @@
       <div class="kpi"><div class="v bad">7 · 20 · 2</div><div class="l">Sonar: bugs · vulnerabilidades · code smells</div></div>
       <div class="kpi"><div class="v bad">12</div><div class="l">CVEs críticas em dependências (Trivy, 108 no total)</div></div>
       <div class="kpi"><div class="v ok">0,0 %</div><div class="l">Duplicação · dívida técnica 10 min · manutenibilidade A</div></div>
+      <div class="kpi"><div class="v ok">5 / 5</div><div class="l">Cenários k6 aprovados · 0 % erro até 200 VUs · p95 ≤ 15 ms</div></div>
       <div class="kpi"><div class="v">3 527</div><div class="l">Linhas de código (ncloc) · 85 arquivos · 362 funções</div></div>
     </div>
   </div>
@@ -93,6 +94,7 @@
         <tr><td>CA-05</td><td>Segurança da aplicação</td><td>sem exposição / CORS restrito</td><td>senha exposta, CORS *, SQL em erros</td><td><span class="pill bad">Não atende</span></td></tr>
         <tr><td>CA-06</td><td>Dependências sem CVE crítica</td><td>0</td><td>12 críticas</td><td><span class="pill bad">Não atende</span></td></tr>
         <tr><td>CA-07</td><td>Qualidade estática</td><td>0 bugs críticos, segurança ≥ B</td><td>7 bugs críticos, rating D</td><td><span class="pill bad">Não atende</span></td></tr>
+        <tr><td>CA-09</td><td>Desempenho sob carga (k6)</td><td>p95 &lt; 500 ms, erro &lt; 1 %</td><td>p95 15 ms com 30 VUs; 0 % erro até 200 VUs</td><td><span class="pill ok">Atende</span></td></tr>
         <tr><td>CA-08</td><td>Manutenibilidade</td><td>dup &lt; 3 %, dívida &lt; 1 dia</td><td>0,0 %, 10 min</td><td><span class="pill ok">Atende</span></td></tr>
       </tbody>
     </table>

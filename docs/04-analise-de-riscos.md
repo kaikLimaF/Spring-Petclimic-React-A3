@@ -32,20 +32,21 @@ Cada risco foi avaliado **antes** da execução dos testes (planejamento) e **re
 | R-14 | Frontend obsoleto (React 15 / TS 2 / `typings`) impede manutenção e testes de UI | 3 | 2 | 6 | P1 | Revisão de código; limitação documentada | **Materializado** — limitação de escopo |
 | R-15 | Listagens vazias devolvem 404 em vez de 200 + `[]`, confundindo clientes | 2 | 1 | 2 | P3 | CT-BB-04 (documentado como observação) | Observado (OBS-01) |
 | R-16 | Endpoints de actuator/health exigem autenticação, dificultando monitoramento | 1 | 1 | 1 | P3 | Sondagem BB-33 | Observado (OBS-02) |
+| R-17 | Associações `FetchType.EAGER` (`Owner.pets`, `Pet.visits`) degradam as listagens conforme a base cresce | 2 | 2 | 4 | P2 | k6: cenários 02–05 (doc 14) | **Materializado** — p95 das leituras de 3 ms → 15 ms com base 50× maior; sem erros |
 
 ## 4.3 Matriz Probabilidade × Impacto (visão consolidada)
 
 ```
                  Impacto 1 (Baixo)        Impacto 2 (Médio)        Impacto 3 (Alto)
 Prob. 3 (Alta)   R-13                     R-14                     R-01  R-02  R-06  R-07
-Prob. 2 (Média)  R-15                     R-08  R-09  R-10         R-03  R-04  R-05
+Prob. 2 (Média)  R-15                     R-08  R-09  R-10  R-17   R-03  R-04  R-05
 Prob. 1 (Baixa)  R-16                     —                        R-11  R-12
 ```
 
 | Zona | Riscos | Ação |
 |---|---|---|
 | **Vermelha (P1, exp. ≥ 6)** | R-01, R-02, R-03, R-04, R-05, R-06, R-07, R-14 | Testes obrigatórios antes da release; bloqueiam o *Go* enquanto materializados |
-| **Amarela (P2, exp. 3–4)** | R-08, R-09, R-10, R-11, R-12, R-13 | Testados; correção planejada para a próxima iteração |
+| **Amarela (P2, exp. 3–4)** | R-08, R-09, R-10, R-11, R-12, R-13, R-17 | Testados; correção planejada para a próxima iteração |
 | **Verde (P3, exp. ≤ 2)** | R-15, R-16 | Monitorar; melhoria opcional |
 
 ## 4.4 Riscos do projeto de QA

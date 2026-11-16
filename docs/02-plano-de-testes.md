@@ -23,6 +23,7 @@ Para isso, o plano define **o que** será testado, **como**, **com quais critér
 | Camada de serviço e modelo | `ClinicServiceImpl`, `UserServiceImpl`, entidades (`Owner`, `Pet`, `Visit`, `Vet`), utilitários (`EntityUtils`, `CallMonitoringAspect`), tratamento de erros (`ExceptionControllerAdvice`, `BindingErrorsResponse`) |
 | Persistência | Perfis `spring-data-jpa`, `jpa` e `jdbc` sobre HSQLDB (testes existentes do projeto) |
 | Segurança | Autenticação HTTP Basic (JDBC), autorização por papel (`@PreAuthorize`), cabeçalhos de segurança, CORS, exposição de dados sensíveis, vulnerabilidades de dependências |
+| Desempenho e carga | k6: smoke, baseline de latência por endpoint, carga sustentada (leituras + escritas), stress e pico, com thresholds (p95, taxa de erro) |
 | Qualidade estática | Análise SonarQube (bugs, vulnerabilidades, code smells, duplicação, complexidade), revisão técnica manual |
 | Cobertura e métricas | JaCoCo (linhas, branches, métodos), métricas de teste e de defeitos |
 
@@ -30,7 +31,6 @@ Para isso, o plano define **o que** será testado, **como**, **com quais critér
 | Item | Justificativa |
 |---|---|
 | Testes automatizados de UI (Selenium/Cypress) do cliente React | O cliente usa React 15 / TypeScript 2 / `typings` (2016), sem `node` no ambiente e com cadeia de build obsoleta; o esforço de reativar a toolchain não cabe no prazo. A integração frontend ↔ backend foi avaliada por **revisão de código** (ver DEF-11) e os testes Jest existentes foram inspecionados. |
-| Testes de carga/desempenho | Sistema de demonstração; não há requisito de desempenho definido. Registrado como melhoria futura. |
 | Bancos MySQL/PostgreSQL | A execução local usa HSQLDB em memória (perfil padrão). Os scripts SQL dos demais bancos foram apenas revisados. |
 
 ## 2.3 Atributos de qualidade avaliados (ISO/IEC 25010)
@@ -42,6 +42,7 @@ Para isso, o plano define **o que** será testado, **como**, **com quais critér
 | **Segurança** | Testes de autenticação/autorização, CORS, exposição de dados, SonarQube (vulnerabilidades/hotspots), Trivy (CVEs) | 0 vulnerabilidades críticas nas dependências; nenhum bypass de autorização; sem exposição de dados sensíveis |
 | **Manutenibilidade** | SonarQube (code smells, duplicação, complexidade), cobertura JaCoCo, revisão de código | Rating de manutenibilidade A; duplicação < 3 %; cobertura ≥ 85 % linhas / ≥ 66 % branches (quality gate do próprio `pom.xml`) |
 | **Compatibilidade / interoperabilidade** | Contrato OpenAPI vs. implementação; integração frontend ↔ backend (status HTTP) | Códigos de status e corpos conforme contrato |
+| **Eficiência de desempenho** | Testes k6 (desempenho, carga, stress, pico) | p95 < 500 ms e erro < 1 % sob 30 usuários simultâneos; sem 5xx em stress/pico |
 | **Usabilidade (API)** | Mensagens de erro úteis, semântica REST | Erros de validação legíveis; status HTTP corretos |
 
 ## 2.4 Estratégia de testes (níveis e técnicas)
@@ -88,6 +89,7 @@ Para isso, o plano define **o que** será testado, **como**, **com quais critér
 | CA-05 | Segurança da aplicação | Nenhum bypass de autenticação/autorização; sem exposição de senhas, SQL ou stack traces; CORS restrito | `SecurityIntegrationTests`, sondagens caixa-preta |
 | CA-06 | Segurança de dependências | 0 CVEs **críticas** em dependências de runtime | `docs/evidencias/trivy-report.txt` |
 | CA-07 | Qualidade estática | Quality Gate SonarQube aprovado; 0 bugs *blocker/critical*; rating de segurança ≥ B | `docs/evidencias/sonar/` |
+| CA-09 | Desempenho sob carga | p95 < 500 ms e erro < 1 % com 30 VUs; sem 5xx no stress/pico | `docs/evidencias/perf/`, `docs/14-testes-de-carga-e-desempenho.md` |
 | CA-08 | Manutenibilidade | Duplicação < 3 %; dívida técnica < 1 dia | SonarQube |
 
 A **Quality Decision** (doc 11) confronta cada critério com as evidências e conclui por *Go*, *No-Go* ou *Conditional Go*.
@@ -113,6 +115,7 @@ A **Quality Decision** (doc 11) confronta cada critério com as evidências e co
 | Análise estática | SonarQube Community 26.11 (Docker, porta 9001) + `sonar-maven-plugin` 5.1.0 |
 | Vulnerabilidades | Trivy (Docker) — `fs --scanners vuln,misconfig,secret` |
 | Caixa-preta | `curl` (`scripts/api-blackbox.sh`), Postman (`docs/postman/petclinic-a3.postman_collection.json`), Swagger UI |
+| Carga / desempenho | k6 (Docker `grafana/k6`) — `scripts/perf/run-all.sh` |
 | CI | GitHub Actions (`.github/workflows/maven-build.yml`): build + testes + JaCoCo + suíte de defeitos + Trivy |
 | Gestão de defeitos | `docs/10-gestao-de-defeitos.md` (formato compatível com GitHub Issues) |
 

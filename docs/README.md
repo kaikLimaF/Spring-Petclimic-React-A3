@@ -18,6 +18,7 @@ Sistema avaliado: **Spring PetClinic (React)** — [spring-petclinic/spring-petc
 | 11 | [Quality Decision](11-quality-decision.md) | 3 | Critérios × evidências → **NO-GO** (produção) / GO condicional (demo) |
 | 12 | [Melhorias e lições aprendidas](12-melhorias-e-licoes-aprendidas.md) | 3 | Lista priorizada e aprendizados |
 | 13 | [Anexo: resultado por teste](13-anexo-resultados-por-teste.md) | 3 | O que falhou, o que funcionou e por quê, com os 285 + 13 testes listados um a um (apoio ao pitch) |
+| 14 | [Testes de carga e desempenho](14-testes-de-carga-e-desempenho.md) | 3 | k6: smoke, desempenho por endpoint, carga sustentada, stress e pico, com critérios e resultados |
 
 ## Artefatos executáveis
 
@@ -26,6 +27,7 @@ Sistema avaliado: **Spring PetClinic (React)** — [spring-petclinic/spring-petc
 | Testes automatizados novos | `spring-petclinic-reactjs/src/test/java/org/springframework/samples/petclinic/{service,model,util,rest,integration}/` |
 | Suíte de regressão de defeitos | `…/integration/KnownDefectsRegressionTests.java` (`./mvnw test -Pknown-defects`) |
 | Script caixa-preta | [`scripts/api-blackbox.sh`](../scripts/api-blackbox.sh) |
+| Cenários k6 (carga/desempenho) | [`scripts/perf/`](../scripts/perf/) (`run-all.sh`, `gen-report.py`) |
 | Coleção Postman | [`postman/petclinic-a3.postman_collection.json`](postman/petclinic-a3.postman_collection.json) |
 | Dashboard de métricas | [`dashboard/index.html`](dashboard/index.html) |
 | Pipeline CI | `spring-petclinic-reactjs/.github/workflows/maven-build.yml` |
@@ -39,5 +41,6 @@ Sistema avaliado: **Spring PetClinic (React)** — [spring-petclinic/spring-petc
 | `sonar/` | `measures.json`, `issues.json`, `issues-summary.md`, `quality-gate.json` |
 | `trivy-report.txt` / `.json` | Vulnerabilidades de dependências |
 | `blackbox-probes-security-on.txt` | 37 sondagens `curl` com requisição e resposta completas |
+| `perf/` | Resumos JSON e console dos 5 cenários k6 |
 | `blackbox-script-run.txt` | Execução do script caixa-preta (segurança off e on) |
 | `pom.xml.original` | `pom.xml` antes das alterações de QA |

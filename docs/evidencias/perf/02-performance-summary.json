@@ -1,0 +1,267 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+            "pettypes 200": {
+                "name": "pettypes 200",
+                "path": "::pettypes 200",
+                "id": "6c13fd08dbd89ed7d55007d9feeb3f12",
+                "passes": 200,
+                "fails": 0
+            },
+            "owners-list 200": {
+                "passes": 200,
+                "fails": 0,
+                "name": "owners-list 200",
+                "path": "::owners-list 200",
+                "id": "67d9c21203036db838158378364bc1a1"
+            },
+            "owner-by-id 200": {
+                "name": "owner-by-id 200",
+                "path": "::owner-by-id 200",
+                "id": "117f9cd73add3ce23c0b747c32f85409",
+                "passes": 200,
+                "fails": 0
+            },
+            "owners-search 200": {
+                "id": "23c2d67c7d00ff0d29b441eba7200d32",
+                "passes": 200,
+                "fails": 0,
+                "name": "owners-search 200",
+                "path": "::owners-search 200"
+            },
+            "pets-list 200": {
+                "fails": 0,
+                "name": "pets-list 200",
+                "path": "::pets-list 200",
+                "id": "a506c9a1327e73732e51270141fd94c4",
+                "passes": 200
+            },
+            "vets-list 200": {
+                "passes": 200,
+                "fails": 0,
+                "name": "vets-list 200",
+                "path": "::vets-list 200",
+                "id": "1eee2445d0a5897764feedf4444e85f9"
+            },
+            "visits-list 200": {
+                "name": "visits-list 200",
+                "path": "::visits-list 200",
+                "id": "deaa4f6e202fb956a5be9344b53aa9c9",
+                "passes": 200,
+                "fails": 0
+            },
+            "specialties 200": {
+                "name": "specialties 200",
+                "path": "::specialties 200",
+                "id": "cadafe4523e138f346b13a57f48e80d1",
+                "passes": 200,
+                "fails": 0
+            }
+        }
+    },
+    "metrics": {
+        "http_req_duration{name:visits-list}": {
+            "max": 4.757673,
+            "p(90)": 2.1993238,
+            "p(95)": 2.35202705,
+            "avg": 1.647486840000001,
+            "min": 0.948127,
+            "med": 1.5749285,
+            "thresholds": {
+                "p(95)<150": false
+            }
+        },
+        "http_req_tls_handshaking": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0
+        },
+        "http_req_duration{name:owners-search}": {
+            "min": 0.981452,
+            "med": 1.8848894999999999,
+            "max": 5.736358,
+            "p(90)": 2.7353445,
+            "p(95)": 2.9575759999999995,
+            "avg": 2.021690559999999,
+            "thresholds": {
+                "p(95)<150": false
+            }
+        },
+        "http_req_blocked": {
+            "p(95)": 0.006505849999999996,
+            "avg": 0.007963924374999995,
+            "min": 0.001273,
+            "med": 0.0025675,
+            "max": 1.347729,
+            "p(90)": 0.004613500000000003
+        },
+        "checks": {
+            "passes": 1600,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_connecting": {
+            "avg": 0.0038870425000000004,
+            "min": 0,
+            "med": 0,
+            "max": 0.738468,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_failed": {
+            "fails": 1600,
+            "passes": 0,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_reqs": {
+            "count": 1600,
+            "rate": 538.431879588605
+        },
+        "http_req_duration{name:owners-list}": {
+            "avg": 1.9477726250000003,
+            "min": 1.14624,
+            "med": 1.823515,
+            "max": 5.189398,
+            "p(90)": 2.6155448,
+            "p(95)": 2.831380899999999,
+            "thresholds": {
+                "p(95)<300": false
+            }
+        },
+        "iteration_duration": {
+            "avg": 14.843314815000006,
+            "min": 9.998673,
+            "med": 14.41331,
+            "max": 26.803408,
+            "p(90)": 17.9869527,
+            "p(95)": 19.816923399999997
+        },
+        "vus": {
+            "max": 1,
+            "value": 1,
+            "min": 1
+        },
+        "data_sent": {
+            "count": 207200,
+            "rate": 69726.92840672436
+        },
+        "http_req_duration{name:specialties}": {
+            "avg": 1.391300529999999,
+            "min": 0.818427,
+            "med": 1.3198965,
+            "max": 3.103778,
+            "p(90)": 1.8913703,
+            "p(95)": 2.0090130999999993,
+            "thresholds": {
+                "p(95)<100": false
+            }
+        },
+        "http_req_duration{name:pettypes}": {
+            "avg": 1.3659361150000007,
+            "min": 0.599553,
+            "med": 1.2873,
+            "max": 4.759764,
+            "p(90)": 1.7906191,
+            "p(95)": 1.963065149999998,
+            "thresholds": {
+                "p(95)<100": false
+            }
+        },
+        "http_req_duration{name:vets-list}": {
+            "p(95)": 2.2729283999999996,
+            "avg": 1.6056376950000018,
+            "min": 0.966521,
+            "med": 1.5217785,
+            "max": 3.508199,
+            "p(90)": 2.1091124,
+            "thresholds": {
+                "p(95)<150": false
+            }
+        },
+        "http_req_receiving": {
+            "max": 3.51793,
+            "p(90)": 0.10356790000000005,
+            "p(95)": 0.14937899999999998,
+            "avg": 0.06874874500000003,
+            "min": 0.020085,
+            "med": 0.052467
+        },
+        "data_received": {
+            "count": 1869904,
+            "rate": 629259.9533564068
+        },
+        "http_req_duration": {
+            "avg": 1.7356869825000012,
+            "min": 0.599553,
+            "med": 1.644998,
+            "max": 6.410926,
+            "p(90)": 2.3995621000000003,
+            "p(95)": 2.7520499
+        },
+        "http_req_sending": {
+            "avg": 0.009878843124999995,
+            "min": 0.003302,
+            "med": 0.007615,
+            "max": 0.175271,
+            "p(90)": 0.017123900000000015,
+            "p(95)": 0.022345149999999987
+        },
+        "http_req_waiting": {
+            "p(95)": 2.5971815499999997,
+            "avg": 1.6570593943750027,
+            "min": 0.570074,
+            "med": 1.5764965,
+            "max": 6.282907,
+            "p(90)": 2.2864177
+        },
+        "http_req_duration{name:pets-list}": {
+            "max": 6.410926,
+            "p(90)": 2.8165329,
+            "p(95)": 3.0747937,
+            "avg": 2.0692862599999993,
+            "min": 1.180853,
+            "med": 1.945595,
+            "thresholds": {
+                "p(95)<300": false
+            }
+        },
+        "iterations": {
+            "count": 200,
+            "rate": 67.30398494857563
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 1.7356869825000012,
+            "min": 0.599553,
+            "med": 1.644998,
+            "max": 6.410926,
+            "p(90)": 2.3995621000000003,
+            "p(95)": 2.7520499
+        },
+        "http_req_duration{name:owner-by-id}": {
+            "avg": 1.836385234999999,
+            "min": 1.047429,
+            "med": 1.7317965000000002,
+            "max": 4.58063,
+            "p(90)": 2.5203450999999997,
+            "p(95)": 2.77025305,
+            "thresholds": {
+                "p(95)<100": false
+            }
+        },
+        "vus_max": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        }
+    }
+}

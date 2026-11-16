@@ -12,7 +12,7 @@ DOCS = ROOT / 'docs'
 ORDER = ['RELATORIO-FINAL.md', '01-arquitetura.md', '02-plano-de-testes.md', '03-matriz-de-rastreabilidade.md',
          '04-analise-de-riscos.md', '05-casos-de-teste-caixa-preta.md', '06-casos-de-teste-caixa-branca.md',
          '07-testes-automatizados.md', '08-inspecao-e-analise-estatica.md', '09-metricas-e-cobertura.md',
-         '10-gestao-de-defeitos.md', '11-quality-decision.md', '12-melhorias-e-licoes-aprendidas.md', '13-anexo-resultados-por-teste.md']
+         '10-gestao-de-defeitos.md', '11-quality-decision.md', '12-melhorias-e-licoes-aprendidas.md', '13-anexo-resultados-por-teste.md', '14-testes-de-carga-e-desempenho.md']
 
 def inline(s):
     s = html.escape(s, quote=False)
